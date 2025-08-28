@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Satisfy&family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  <link rel="stylesheet" href="./assets/css/loader.css">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/nav.css">
+  <title>UIU Calculator</title>
+</head>
+<body>
+
+
+
+
+<!-- First-time Overlay -->
+<div id="welcomeOverlay" style="position: fixed; top:0; left:0; width:100%; height:100%;
+background: #000; display:none; justify-content:center; align-items:center; z-index:9999;">
+  <div style="background:#000; padding:40px; border-radius:12px; text-align:center; color:#fff; min-width:300px;">
+    <h2 id="overlayTitle">Enter your name for personalized greeting 👋</h2>
+    <input type="text" id="firstTimeInput" placeholder="Your name" 
+           style="width: 100%; border: 1px solid #424242!important; outline: none; padding:10px; font-size:16px; margin-top:15px; border-radius:6px;">
+    <br>
+    <button id="saveNameBtn" 
+            style="width: 100%; margin-top: 10px; padding:10px 20px; font-size:16px; cursor:pointer; border:none; background:#f37021; color:#fff; border-radius:6px;">
+      Save
+    </button>
+    <div id="welcomeMsg" style="margin-top:20px; color:#0f6; font-weight:bold; display:none; font-size:40px!important; opacity:0; transition: opacity 0.5s ease, transform 0.5s ease;"></div>
+  </div>
+</div>
+
+<h1 id="greeting" style="color:#fff;"></h1>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const welcomeOverlay = document.getElementById("welcomeOverlay");
+    const firstTimeInput = document.getElementById("firstTimeInput");
+    const saveNameBtn = document.getElementById("saveNameBtn");
+    const welcomeMsg = document.getElementById("welcomeMsg");
+    const overlayTitle = document.getElementById("overlayTitle");
+
+    const saveName = () => {
+        const name = firstTimeInput.value.trim() || "UIUian";
+        localStorage.setItem("username", name);
+
+        // Hide input, button, and heading
+        firstTimeInput.style.display = "none";
+        saveNameBtn.style.display = "none";
+        overlayTitle.style.display = "none";
+
+        // Show elegant confirmation message
+        welcomeMsg.textContent = `Welcome to UIU Calculator, ${name}! 👋`;
+        welcomeMsg.style.display = "block";
+        // Trigger animation
+        setTimeout(() => {
+            welcomeMsg.style.opacity = 1;
+            welcomeMsg.style.transform = "translateY(-10px)";
+        }, 50);
+
+        // Wait 2 seconds, then refresh
+        setTimeout(() => location.reload(), 2000);
+    };
+
+    // Show overlay if no username saved
+    if (!localStorage.getItem("username")) {
+        welcomeOverlay.style.display = "flex";
+    } else {
+        if (typeof updateGreeting === "function") updateGreeting();
+    }
+
+    saveNameBtn.addEventListener("click", saveName);
+    firstTimeInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") saveName();
+    });
+});
+</script>
+
+
+
+
+
+
+  <header-x></header-x>
+  <nav-x></nav-x>
+  <div class="content">
+    <div class="inner-content">
+      <div id="preloader">
+        <span class="loader"></span>
+        <div class="gradient-text">UIU<br>Calculator</div>
+      </div>
+      <div id="content-preload" class="fadeIn">
+        <div class="min-h-screen flex flex-col">
+          <main class="flex-1 p-4 md:p-8">
+            <div class="container-h">
+              <div class="container-h">
+                <div class="left-column-h">
+                  <div class="hero-sec">
+                    <h1>UIU<br>Calculator</h1>
+                    <p style="text-align: center;">Meet your new study mate! Our UIU CGPA & Installment Calculator does the math for you. Calculate your grades, figure out your CGPA, and check your installments. Fast, easy, and super handy, making student life way simpler!</p>
+                  </div>
+                </div>
+                <div class="right-column-h"><img src="./assets/image/calculator.svg" alt="Rocket"></div>
+              </div>
+            </div>
+            <div class="tool-all">
+              <div class="tool-single-ka2">
+                <div class="header-containerX">
+                  <p class="item-heading">Calculators</p>
+                </div>
+                <div class="containerx1">
+                  <ul class="item-containerX" aria-label="calculators">
+                    <a href="cgpa.html" class="item" style="text-decoration: none; color: inherit; display: block;">
+                      CGPA
+                    </a>
+                    <a href="installment.html" class="item" style="text-decoration: none; color: inherit; display: block;">
+                      Installment
+                    </a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+        <footer class="main-footer">
+          All Rights Reserved © 2025 | <a href="https://github.com/prognerds" target="_blank">Prog Nerds</a>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <script src="./assets/script/loader.js"></script>
+  <script type=module src="assets/script/header.js"></script>
+  <script type=module src="assets/script/nav.js"></script>
+  <script src="./assets/script/main.js"></script>
+  <script src="./assets/script/greeting.js"></script>
+</body>
+</html>
