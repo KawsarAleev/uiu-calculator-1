@@ -90,7 +90,7 @@ function populateGradeDropdowns() {
 
   courseGrade.value = "A";
   previousGrade.value = "C";
-  newGrade.value = "B";
+  newGrade.value = "A";
 }
 
 // =====================
