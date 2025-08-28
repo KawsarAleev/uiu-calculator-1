@@ -1,7 +1,7 @@
 window.addEventListener("load", function () {
   const preloader = document.getElementById("preloader");
   const content = document.getElementById("content-preload");
-  const minDelay = 1000; 
+  const minDelay = 500; 
   const loadTime = performance.now();
   const delay = Math.max(minDelay, loadTime);
   setTimeout(() => {
