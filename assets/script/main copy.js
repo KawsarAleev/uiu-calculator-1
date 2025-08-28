@@ -24,7 +24,7 @@ function getOrCreateErrorEl(id, afterElementId) {
     el = document.createElement("small");
     el.id = id;
     el.style.display = "none";
-    el.style.color = "#dc2626";
+    el.style.color = "#dc2626"; 
     el.style.fontSize = "12px";
     el.className = "form-error";
     const afterEl = document.getElementById(afterElementId);
@@ -108,6 +108,7 @@ function addCourse() {
   const credit = parseFloat(creditEl.value);
   const grade = gradeEl.value;
 
+  // Basic guard: ignore if invalid credit
   if (isNaN(credit) || credit <= 0) {
     showError("courseCreditError", "Please enter a valid course credit (> 0)", "courseCredit");
     return;
@@ -129,6 +130,7 @@ function addRetakeCourse() {
   const newGrade = document.getElementById("newGrade").value;
   const credit = parseFloat(creditEl.value);
 
+  // Basic guard: ignore if invalid credit
   if (isNaN(credit) || credit <= 0) {
     showError("retakeCourseCreditError", "Please enter a valid course credit (> 0)", "retakeCourseCredit");
     return;
@@ -152,218 +154,6 @@ function removeCourse(id) {
 function removeRetakeCourse(id) {
   retakeCourses = retakeCourses.filter((course) => course.id !== id);
   updateRetakeCoursesTable();
-}
-
-// =====================
-// Edit modal (UI)
-// =====================
-let activeEdit = null;
-
-function createModalStyles() {
-  if (document.getElementById("uiu-modal-styles")) return;
-  const style = document.createElement("style");
-  style.id = "uiu-modal-styles";
-  style.textContent = `
-    .uiu-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:none;justify-content:center;align-items:center;padding:16px;z-index:9999}
-    .uiu-modal{width:100%;max-width:520px}
-    .uiu-modal .card{max-height:85vh;overflow:auto}
-    @media (max-width: 480px){.uiu-modal{max-width:96vw}}
-  `;
-  document.head.appendChild(style);
-}
-
-function ensureEditModal() {
-  let overlay = document.getElementById("editModalOverlay");
-  if (overlay) return overlay;
-
-  overlay = document.createElement("div");
-  overlay.id = "editModalOverlay";
-  overlay.className = "uiu-modal-overlay";
-  overlay.innerHTML = `
-    <div class="uiu-modal">
-      <div class="card">
-        <div class="card-header py-3">
-          <h3 id="editModalTitle" class="card-title flex items-center gap-2 text-base">
-            <i class="fas fa-pen text-green-500"></i>
-            Edit Course
-          </h3>
-        </div>
-        <div class="card-content">
-          <div id="editFormBody" class="space-y-3"></div>
-          <div class="flex gap-2 mt-4">
-            
-            <button id="editCancelBtn" class="btn flex-1 h-9 text-xs flex items-center gap-2">
-              <i class="fas fa-times"></i>
-              Cancel
-            </button>
-            <button id="editSaveBtn" class="btn flex-1 h-9 text-xs flex items-center gap-2">
-              <i class="fas fa-save"></i>
-              Save
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-  document.body.appendChild(overlay);
-  return overlay;
-}
-
-function creditLabel(v) {
-  return Number.isInteger(v) ? v.toFixed(1) : v.toString();
-}
-function creditOptionsHtml(selected) {
-  const arr = [1, 1.5, 2, 3, 4];
-  const selNum = parseFloat(selected);
-  return arr
-    .map(
-      (v) =>
-        `<option value="${v}" ${selNum === v ? "selected" : ""}>${creditLabel(v)}</option>`
-    )
-    .join("");
-}
-function gradeOptionsHtml(selected) {
-  return Object.keys(gradePoints)
-    .map(
-      (g) =>
-        `<option value="${g}" ${g === selected ? "selected" : ""}>${g} (${gradePoints[g].toFixed(
-          2
-        )})</option>`
-    )
-    .join("");
-}
-
-function overlayClickHandler(e) {
-  const overlay = document.getElementById("editModalOverlay");
-  if (e.target === overlay) {
-    closeEditModal();
-  }
-}
-function escHandler(e) {
-  if (e.key === "Escape") {
-    closeEditModal();
-  }
-}
-
-function openEditModal(type, id) {
-  const overlay = ensureEditModal();
-  const titleEl = overlay.querySelector("#editModalTitle");
-  const formBody = overlay.querySelector("#editFormBody");
-  const saveBtn = overlay.querySelector("#editSaveBtn");
-  const cancelBtn = overlay.querySelector("#editCancelBtn");
-
-  activeEdit = { type, id };
-
-  if (type === "new") {
-    const course = courses.find((c) => c.id === id);
-    if (!course) return;
-    titleEl.innerHTML = `<i class="fas fa-pen text-green-500"></i> Edit New Course`;
-    formBody.innerHTML = `
-      <div class="grid grid-cols-2 gap-3 mb-3">
-        <div>
-          <label class="text-xs">Credit Hours</label>
-          <select id="editCredit" class="dark-select h-8">
-            ${creditOptionsHtml(course.credit)}
-          </select>
-        </div>
-        <div>
-          <label class="text-xs">Grade</label>
-          <select id="editGrade" class="dark-select h-8">
-            ${gradeOptionsHtml(course.grade)}
-          </select>
-        </div>
-      </div>
-    `;
-  } else {
-    const course = retakeCourses.find((c) => c.id === id);
-    if (!course) return;
-    titleEl.innerHTML = `<i class="fas fa-pen text-green-500"></i> Edit Retake Course`;
-    formBody.innerHTML = `
-      <div class="grid grid-cols-1 gap-3">
-        <div>
-          <label class="text-xs">Credit Hours</label>
-          <select id="editRetakeCredit" class="dark-select h-8">
-            ${creditOptionsHtml(course.credit)}
-          </select>
-        </div>
-        <div class="grid grid-cols-2 gap-3 mb-3">
-          <div>
-            <label class="text-xs">Previous Grade</label>
-            <select id="editPrevGrade" class="dark-select h-8">
-              ${gradeOptionsHtml(course.previousGrade)}
-            </select>
-          </div>
-          <div>
-            <label class="text-xs">Expected Grade</label>
-            <select id="editNewGrade" class="dark-select h-8">
-              ${gradeOptionsHtml(course.newGrade)}
-            </select>
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  saveBtn.onclick = () => {
-    if (!activeEdit) return;
-
-    if (activeEdit.type === "new") {
-      const course = courses.find((c) => c.id === activeEdit.id);
-      if (!course) return;
-      const credit = parseFloat(overlay.querySelector("#editCredit").value);
-      const grade = overlay.querySelector("#editGrade").value;
-      if (isNaN(credit) || credit <= 0 || !gradePoints.hasOwnProperty(grade)) return;
-      course.credit = credit;
-      course.grade = grade;
-      updateCoursesTable();
-    } else {
-      const course = retakeCourses.find((c) => c.id === activeEdit.id);
-      if (!course) return;
-      const credit = parseFloat(overlay.querySelector("#editRetakeCredit").value);
-      const prev = overlay.querySelector("#editPrevGrade").value;
-      const next = overlay.querySelector("#editNewGrade").value;
-      if (
-        isNaN(credit) ||
-        credit <= 0 ||
-        !gradePoints.hasOwnProperty(prev) ||
-        !gradePoints.hasOwnProperty(next)
-      )
-        return;
-      course.credit = credit;
-      course.previousGrade = prev;
-      course.newGrade = next;
-      updateRetakeCoursesTable();
-    }
-    closeEditModal();
-  };
-
-  cancelBtn.onclick = closeEditModal;
-
-  overlay.style.display = "flex";
-  setTimeout(() => {
-    const firstSel = overlay.querySelector("select");
-    firstSel && firstSel.focus();
-  }, 0);
-
-  overlay.addEventListener("click", overlayClickHandler);
-  document.addEventListener("keydown", escHandler);
-}
-
-function closeEditModal() {
-  const overlay = document.getElementById("editModalOverlay");
-  if (!overlay) return;
-  overlay.style.display = "none";
-  overlay.removeEventListener("click", overlayClickHandler);
-  document.removeEventListener("keydown", escHandler);
-  activeEdit = null;
-}
-
-// Keep function names used by buttons
-function editCourse(id) {
-  openEditModal("new", id);
-}
-function editRetakeCourse(id) {
-  openEditModal("retake", id);
 }
 
 // =====================
@@ -392,7 +182,8 @@ function updateCoursesTable() {
   courses.forEach((course) => {
     const gradePoint = gradePoints[course.grade];
     const points = course.credit * gradePoint;
-    const percentImpact = totalCoursePoints > 0 ? ((points / totalCoursePoints) * 100).toFixed(1) : "0.0";
+    const percentImpact =
+      totalCoursePoints > 0 ? ((points / totalCoursePoints) * 100).toFixed(1) : "0.0";
 
     let noteClass = "note-g1";
     if (gradePoint < currentCGPA) noteClass = "note-r1";
@@ -414,21 +205,10 @@ function updateCoursesTable() {
 
     const actionCell = document.createElement("td");
     actionCell.className = "text-center py-2";
-
-    const editButton = document.createElement("button");
-    editButton.className = "btn-outline btn-sm h-6 w-6 p-0";
-    editButton.style.marginRight = "6px";
-    editButton.title = "Edit";
-    editButton.innerHTML = `<i class="fas fa-pen text-white-500"></i>`;
-    editButton.onclick = () => editCourse(course.id);
-
     const deleteButton = document.createElement("button");
     deleteButton.className = "btn-destructive btn-sm h-6 w-6 p-0";
-    deleteButton.title = "Remove";
     deleteButton.innerHTML = `<i class="fas fa-trash text-amber-500"></i>`;
     deleteButton.onclick = () => removeCourse(course.id);
-
-    actionCell.appendChild(editButton);
     actionCell.appendChild(deleteButton);
 
     row.appendChild(creditCell);
@@ -514,21 +294,10 @@ function updateRetakeCoursesTable() {
 
     const actionCell = document.createElement("td");
     actionCell.className = "text-center py-2";
-
-    const editButton = document.createElement("button");
-    editButton.className = "btn-outline btn-sm h-6 w-6 p-0";
-    editButton.style.marginRight = "6px";
-    editButton.title = "Edit";
-    editButton.innerHTML = `<i class="fas fa-pen text-white-500"></i>`;
-    editButton.onclick = () => editRetakeCourse(course.id);
-
     const deleteButton = document.createElement("button");
     deleteButton.className = "btn-destructive btn-sm h-6 w-6 p-0";
-    deleteButton.title = "Remove";
     deleteButton.innerHTML = `<i class="fas fa-trash text-amber-500"></i>`;
     deleteButton.onclick = () => removeRetakeCourse(course.id);
-
-    actionCell.appendChild(editButton);
     actionCell.appendChild(deleteButton);
 
     row.appendChild(creditCell);
@@ -713,7 +482,7 @@ function calculateCGPA() {
           </div>
         </div>
 
-        ${courses.length > 0 ? `
+        ${newCourseCredits > 0 ? `
         <div class="card">
           <div class="card-header bg-green-500/10 py-3">
             <h3 class="card-title flex items-center gap-2 text-base">
@@ -831,12 +600,14 @@ function calculateTuitionFee() {
   const ethnicTribalWaiver = parseFloat(document.getElementById("ethnicTribalWaiver").value);
   const disabilityWaiver = parseFloat(document.getElementById("disabilityWaiver").value);
 
+  // Create/resolve error slots for fee form
   const perCreditFeeErrorEl = document.getElementById("perCreditFeeError") || getOrCreateErrorEl("perCreditFeeError", "perCreditFee");
   const trimesterFeeErrorEl = document.getElementById("trimesterFeeError") || getOrCreateErrorEl("trimesterFeeError", "trimesterFee");
   const newCreditErrorEl = getOrCreateErrorEl("newCreditError", "newCredit");
   const retakeCreditErrorEl = getOrCreateErrorEl("retakeCreditError", "retakeCredit");
   const creditTotalErrorEl = getOrCreateErrorEl("creditTotalError", "retakeCredit");
 
+  // Parse credits (empty -> 0)
   const newCreditStr = newCreditInput.value.trim();
   const retakeCreditStr = retakeCreditInput.value.trim();
   const newCredit = newCreditStr === "" ? 0 : parseFloat(newCreditStr);
@@ -844,12 +615,14 @@ function calculateTuitionFee() {
 
   let isValid = true;
 
+  // Reset error messages
   perCreditFeeErrorEl.style.display = "none";
   trimesterFeeErrorEl.style.display = "none";
   newCreditErrorEl.style.display = "none";
   retakeCreditErrorEl.style.display = "none";
   creditTotalErrorEl.style.display = "none";
 
+  // Fee inputs validation
   if (isNaN(perCreditFee)) {
     perCreditFeeErrorEl.textContent = "Please enter per credit fee";
     perCreditFeeErrorEl.style.display = "block";
@@ -861,6 +634,7 @@ function calculateTuitionFee() {
     isValid = false;
   }
 
+  // Credits validation: cannot be negative
   if (isNaN(newCredit)) {
     newCreditErrorEl.textContent = "Enter a valid number";
     newCreditErrorEl.style.display = "block";
@@ -883,6 +657,7 @@ function calculateTuitionFee() {
     isValid = false;
   }
 
+  // Both cannot be 0 at the same time
   if (isValid && newCredit === 0 && retakeCredit === 0) {
     creditTotalErrorEl.textContent = "Both credits cannot be 0";
     creditTotalErrorEl.style.display = "block";
@@ -891,6 +666,7 @@ function calculateTuitionFee() {
 
   if (!isValid) return;
 
+  // Proceed with calculation
   const totalCredit = newCredit + retakeCredit;
   const totalCreditFee = totalCredit * perCreditFee;
 
@@ -1270,7 +1046,6 @@ function validateInstallmentCredits() {
 // =====================
 document.addEventListener("DOMContentLoaded", function () {
   populateGradeDropdowns();
-  createModalStyles();
 
   // Button bindings
   document.getElementById("addCourseBtn")?.addEventListener("click", addCourse);

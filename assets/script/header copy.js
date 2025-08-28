@@ -2,37 +2,14 @@ class globalHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
   <div id="greeting" style="font-weight: 600;"></div>
-  <!-- <header>
+  <header>
     <a href="index.html" class="logo">
       <img src="./assets/image/uiuCalculatorLogo.png" alt="UIU Calculator Logo">
     </a>
-    <button>
-      CGPA Calculator
-    </button>
-    <button>
-      Installment Calculator
-    </button>
     <button class="hamburger-btn" id="hamburgerBtn">
       <i class="fas fa-bars"></i>
     </button>
-  </header>-->
-
-  <header>
-  <a href="index.html" class="logo">
-    <img src="./assets/image/uiuCalculatorLogo.png" alt="UIU Calculator Logo">
-  </a>
-
-  <nav class="header-links">
-    <a href="cgpa.html" class="header-btn">CGPA Calculator</a>
-    <a href="installment.html" class="header-btn">Installment Calculator</a>
-    <button class="hamburger-btn" id="hamburgerBtn">
-      <i class="fas fa-bars"></i>
-    </button>
-  </nav>
-</header>
-
-
-
+  </header>
   <div class="off-canvas-menu" id="offCanvasMenu">
     <div class="menu-header">
       <div class="menu-title">
@@ -63,20 +40,7 @@ class globalHeader extends HTMLElement {
 
 
 <div class="menu-footer-f1">
-<div class="uiu-badge">
-  <span class="uiu-badge-left">Version</span>
-  <span class="uiu-badge-right">1 . 0 . 0</span>
-</div>
-
-<div class="uiu-license-badge">
-  <span class="uiu-license-left">License</span>
-  <span class="uiu-license-right">M I T</span>
-</div>
-
-
-  </span>
-</div>
-<div class="menu-footer-f1">
+  <span>
     <i class="fas fa-sync-alt" style="margin-right: 3px; font-size: 11px!important;"></i> 
     Last Updated: <span id="lastUpdated">24 August, 2025</span><br>
     (<span id="timeAgo">Calculating...</span>)
