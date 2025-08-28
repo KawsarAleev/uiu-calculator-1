@@ -531,6 +531,13 @@ body.dark-mode .breadcrumb {
     margin-left: -1px;
 }
 
+.container, .gsc-main{
+    max-width: 1000px!important;
+    margin: auto;
+}
+
+
+
 .card {
     background-color: hsl(var(--card));
     border-radius: var(--radius);
