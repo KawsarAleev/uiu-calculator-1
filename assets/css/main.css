@@ -927,7 +927,9 @@ tr:last-child td {
     }
 
     .md\:p-8 {
+        width: 1000px;
         padding: 2rem;
+        margin: auto;
     }
 
     .md\:flex-row {

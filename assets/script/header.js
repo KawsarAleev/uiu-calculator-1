@@ -10,7 +10,7 @@ class globalHeader extends HTMLElement {
       CGPA Calculator
     </button>
     <button>
-      Installment Calculator
+      Tuition Fee Calculator
     </button>
     <button class="hamburger-btn" id="hamburgerBtn">
       <i class="fas fa-bars"></i>
@@ -24,7 +24,7 @@ class globalHeader extends HTMLElement {
 
   <nav class="header-links">
     <a href="cgpa.html" class="header-btn">CGPA Calculator</a>
-    <a href="installment.html" class="header-btn">Installment Calculator</a>
+    <a href="tuitionfee.html" class="header-btn">Tuition Fee Calculator</a>
     <button class="hamburger-btn" id="hamburgerBtn">
       <i class="fas fa-bars"></i>
     </button>
@@ -58,7 +58,7 @@ class globalHeader extends HTMLElement {
 
       <a href="index.html" class="offcanvas-btn">Return Home</a>
       <a href="cgpa.html" class="offcanvas-btn">CGPA Calculator</a>
-      <a href="installment.html" class="offcanvas-btn">Installment Calculator</a>
+      <a href="tuitionfee.html" class="offcanvas-btn">Tuition Fee Calculator</a>
     </div>
 
 

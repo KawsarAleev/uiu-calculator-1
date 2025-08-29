@@ -66,39 +66,71 @@
                         <i class="fa-solid fa-file-csv textB"></i> Save as CSV
                       </button>
                     </div>
-                    <table id="grading-table" border="1" cellpadding="5">
+                    <table id="grading-table">
                       <tr>
                         <th>Letter Grade</th>
                         <th>Grade Point</th>
                         <th>Marks (%)</th>
                       </tr>
                       <tr>
-                        <td>A</td><td>4.00</td><td>90-100</td>
-                        <td>A-</td><td>3.67</td><td>86-89</td>
+                        <td>A</td>
+                        <td>4.00</td>
+                        <td>90 - 100</td>
                       </tr>
                       <tr>
-                        <td>B+</td><td>3.33</td><td>82-85</td>
-                        <td>B</td><td>3.00</td><td>78-81</td>
+                        <td>A-</td>
+                        <td>3.67</td>
+                        <td>86 - 89</td>
                       </tr>
                       <tr>
-                        <td>B-</td><td>2.67</td><td>74-77</td>
-                        <td>C+</td><td>2.33</td><td>70-73</td>
+                        <td>B+</td>
+                        <td>3.33</td>
+                        <td>82 - 85</td>
                       </tr>
                       <tr>
-                        <td>C</td><td>2.00</td><td>66-69</td>
-                        <td>C-</td><td>1.67</td><td>62-65</td>
+                        <td>B</td>
+                        <td>3.00</td>
+                        <td>78 - 81</td>
                       </tr>
                       <tr>
-                        <td>D+</td><td>1.33</td><td>58-61</td>
-                        <td>D</td><td>1.00</td><td>55-57</td>
+                        <td>B-</td>
+                        <td>2.67</td>
+                        <td>74 - 77</td>
                       </tr>
                       <tr>
-                        <td>F</td><td>0.00</td><td>0-54</td>
+                        <td>C+</td>
+                        <td>2.33</td>
+                        <td>70 - 73</td>
+                      </tr>
+                      <tr>
+                        <td>C</td>
+                        <td>2.00</td>
+                        <td>66 - 69</td>
+                      </tr>
+                      <tr>
+                        <td>C-</td>
+                        <td>1.67</td>
+                        <td>62 - 65</td>
+                      </tr>
+                      <tr>
+                        <td>D+</td>
+                        <td>1.33</td>
+                        <td>58 - 61</td>
+                      </tr>
+                      <tr>
+                        <td>D</td>
+                        <td>1.00</td>
+                        <td>55 - 57</td>
+                      </tr>
+                      <tr>
+                        <td>F</td>
+                        <td>0.00</td>
+                        <td>0 - 54</td>
                       </tr>
                     </table>
                   </div>
                 </details>
-                <script>
+                <!-- <script>
                   function downloadTableAsCSV() {
                     const table = document.getElementById("grading-table");
                     let csv = [];
@@ -115,7 +147,7 @@
                     link.download = "UIU-Grading-System-ProgNerds.csv";
                     link.click();
                   }
-                </script>
+                </script> -->
                 <details class="acc-item">
                   <summary class="acc-question-item">GPA & CGPA Calculation
                   </summary>
@@ -388,5 +420,6 @@
   <script type=module src="assets/script/nav.js"></script>
   <script src="./assets/script/main.js"></script>
   <script src="./assets/script/greeting.js"></script>
+  <script src="./assets/script/download.js"></script>
 </body>
 </html>

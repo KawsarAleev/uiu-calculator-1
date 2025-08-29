@@ -13,9 +13,9 @@ class globalNav extends HTMLElement {
             <i class="fa-solid fa-graduation-cap"></i><span>CGPA</span>
         </button>
     </a>
-    <a href="installment.html" style="text-decoration: none;">
+    <a href="tuitionfee.html" style="text-decoration: none;">
         <button>
-            <i class="fa-solid fa-money-bill-wave"></i><span>Installment</span>
+            <i class="fa-solid fa-money-bill-wave"></i><span>Tuition Fee</span>
         </button>
     </a>
     <button id="reloadButton">
