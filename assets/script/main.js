@@ -154,20 +154,20 @@ function ensureEditModal() {
     overlay.innerHTML = `
     <div class="uiu-modal">
       <div class="card">
-        <div class="card-header py-3">
-          <h3 id="editModalTitle" class="card-title flex items-center gap-2 text-base">
-            <i class="fas fa-pen text-green-500"></i>
+        <div class="card-header padding2">
+          <h3 id="editModalTitle" class="card-title flex itemsC gap1 text-base">
+            <i class="fas fa-pen textG"></i>
             Edit Course
           </h3>
         </div>
         <div class="card-content">
-          <div id="editFormBody" class="space-y-3"></div>
-          <div class="flex gap-2 mt-4">
-            <button id="editCancelBtn" class="btn flex-1 h-9 text-xs flex items-center gap-2">
+          <div id="editFormBody" class="margin4"></div>
+          <div class="flex gap1 margin3">
+            <button id="editCancelBtn" class="btn flex1 h-9 text-xs flex itemsC gap1">
               <i class="fas fa-times"></i>
               Cancel
             </button>
-            <button id="editSaveBtn" class="btn flex-1 h-9 text-xs flex items-center gap-2">
+            <button id="editSaveBtn" class="btn flex1 h-9 text-xs flex itemsC gap1">
               <i class="fas fa-save"></i>
               Save
             </button>
@@ -232,9 +232,9 @@ function openEditModal(type, id) {
     if (type === "new") {
         const course = courses.find((c) => c.id === id);
         if (!course) return;
-        titleEl.innerHTML = `<i class="fas fa-pen text-green-500"></i> Edit New Course`;
+        titleEl.innerHTML = `<i class="fas fa-pen textG"></i> Edit New Course`;
         formBody.innerHTML = `
-      <div class="grid grid-cols-2 gap-3 mb-3">
+      <div class="grid gridc2 gap2 mb-3">
         <div>
           <label class="text-xs">Credit Hours</label>
           <select id="editCredit" class="dark-select h-8">
@@ -252,16 +252,16 @@ function openEditModal(type, id) {
     } else {
         const course = retakeCourses.find((c) => c.id === id);
         if (!course) return;
-        titleEl.innerHTML = `<i class="fas fa-pen text-green-500"></i> Edit Retake Course`;
+        titleEl.innerHTML = `<i class="fas fa-pen textG"></i> Edit Retake Course`;
         formBody.innerHTML = `
-      <div class="grid grid-cols-1 gap-3">
+      <div class="grid gridc1 gap2">
         <div>
           <label class="text-xs">Credit Hours</label>
           <select id="editRetakeCredit" class="dark-select h-8">
             ${creditOptionsHtml(course.credit)}
           </select>
         </div>
-        <div class="grid grid-cols-2 gap-3 mb-3">
+        <div class="grid gridc2 gap2 mb-3">
           <div>
             <label class="text-xs">Previous Grade</label>
             <select id="editPrevGrade" class="dark-select h-8">
@@ -367,7 +367,7 @@ function updateCoursesTable() {
         gradeCell.className = "text-xs py-2";
         gradeCell.textContent = course.grade;
         const gradePointCell = document.createElement("td");
-        gradePointCell.className = "text-xs py-2 text-green-500 font-semibold";
+        gradePointCell.className = "text-xs py-2 textG font-semibold";
         gradePointCell.textContent = gradePoint.toFixed(2);
         const actionCell = document.createElement("td");
         actionCell.className = "text-center py-2";
@@ -380,7 +380,7 @@ function updateCoursesTable() {
         const deleteButton = document.createElement("button");
         deleteButton.className = "btn-destructive btn-sm h-6 w-6 p-0";
         deleteButton.title = "Remove";
-        deleteButton.innerHTML = `<i class="fas fa-trash text-amber-500"></i>`;
+        deleteButton.innerHTML = `<i class="fas fa-trash textA"></i>`;
         deleteButton.onclick = () => removeCourse(course.id);
         actionCell.appendChild(editButton);
         actionCell.appendChild(deleteButton);
@@ -427,10 +427,10 @@ function updateRetakeCoursesTable() {
         let message = "";
         if (newGradePoint > previousGradePoint) {
             noteClass = "note-g1";
-            message = `<p class="text-xs text-green-500 mt-1" style="margin-top:0.3rem;"><i class="fa fa-arrow-up"></i> Your grade improved</p>`;
+            message = `<p class="text-xs textG mt-1" style="margin-top:0.3rem;"><i class="fa fa-arrow-up"></i> Your grade improved</p>`;
         } else if (newGradePoint < previousGradePoint) {
             noteClass = "note-r1";
-            message = `<p class="text-xs text-red-500 mt-1" style="margin-top:0.3rem;"><i class="fa fa-exclamation-triangle"></i> Your previous grade was higher and that will be counted</p>`;
+            message = `<p class="text-xs textR mt-1" style="margin-top:0.3rem;"><i class="fa fa-exclamation-triangle"></i> Your previous grade was higher and that will be counted</p>`;
         } else {
             message = `<p class="text-xs text-gray-600 mt-1" style="margin-top:0.3rem;"><i class="fa fa-info-circle"></i> Your grade has not changed</p>`;
         }
@@ -448,9 +448,9 @@ function updateRetakeCoursesTable() {
         improvementCell.className = "text-xs py-2";
         const colorClass =
             improvement > 0 ?
-            "text-green-500" :
+            "textG" :
             improvement < 0 ?
-            "text-red-500" :
+            "textR" :
             "text-gray-500";
         improvementCell.innerHTML = `<span class="${colorClass} font-semibold">
       ${improvement >= 0 ? "+" : ""}${improvement.toFixed(2)}
@@ -466,7 +466,7 @@ function updateRetakeCoursesTable() {
         const deleteButton = document.createElement("button");
         deleteButton.className = "btn-destructive btn-sm h-6 w-6 p-0";
         deleteButton.title = "Remove";
-        deleteButton.innerHTML = `<i class="fas fa-trash text-amber-500"></i>`;
+        deleteButton.innerHTML = `<i class="fas fa-trash textA"></i>`;
         deleteButton.onclick = () => removeRetakeCourse(course.id);
         actionCell.appendChild(editButton);
         actionCell.appendChild(deleteButton);
@@ -546,17 +546,17 @@ function calculateCGPA() {
     if (totalCredits <= 0) {
         resultDiv.innerHTML = `
       <div class="card">
-        <div class="card-header bg-red-500/10 py-3">
-          <h3 class="card-title flex items-center gap-2 text-base">
-            <i class="fas fa-circle-exclamation text-amber-500"></i>
+        <div class="card-header bg-red-500/10 padding2">
+          <h3 class="card-title flex itemsC gap1 text-base">
+            <i class="fas fa-circle-exclamation textA"></i>
             Invalid Input
           </h3>
         </div>
-        <div class="card-content pt-4">
-          <div class="flex flex-col items-center justify-center text-center">
-            <i class="fas fa-triangle-exclamation text-amber-500" style="font-size: 3rem!important; margin-bottom: 1rem;"></i>
-            <h4 class="text-xl font-bold text-amber-500 mb-3">Total credits cannot be 0</h4>
-            <p class="mb-4" style="margin-top: 10px; text-align: justify;">
+        <div class="card-content padding3">
+          <div class="flex fc itemsC justify-center text-center">
+            <i class="fas fa-triangle-exclamation textA" style="font-size: 3rem!important; margin-bottom: 1rem;"></i>
+            <h4 class="text-xl font-bold textA mb-3">Total credits cannot be 0</h4>
+            <p class="margin1" style="margin-top: 10px; text-align: justify;">
               Please enter completed credits or add at least one course to calculate CGPA.
             </p>
           </div>
@@ -575,17 +575,17 @@ function calculateCGPA() {
     if (newCGPA > 4.0) {
         resultDiv.innerHTML = `
       <div class="card">
-        <div class="card-header bg-red-500/10 py-3">
-          <h3 class="card-title flex items-center gap-2 text-base">
-            <i class="fas fa-circle-exclamation text-amber-500"></i>
+        <div class="card-header bg-red-500/10 padding2">
+          <h3 class="card-title flex itemsC gap1 text-base">
+            <i class="fas fa-circle-exclamation textA"></i>
             Invalid Input Detected
           </h3>
         </div>
-        <div class="card-content pt-4">
-          <div class="flex flex-col items-center justify-center text-center">
-            <i class="fas fa-triangle-exclamation text-amber-500" style="font-size: 3rem!important; margin-bottom: 1rem;"></i>
-            <h4 class="text-xl font-bold text-amber-500 mb-3">CGPA Cannot Exceed 4.00</h4>
-            <p class="mb-4" style="margin-top: 10px; text-align: justify;">
+        <div class="card-content padding3">
+          <div class="flex fc itemsC justify-center text-center">
+            <i class="fas fa-triangle-exclamation textA" style="font-size: 3rem!important; margin-bottom: 1rem;"></i>
+            <h4 class="text-xl font-bold textA mb-3">CGPA Cannot Exceed 4.00</h4>
+            <p class="margin1" style="margin-top: 10px; text-align: justify;">
               The calculated CGPA (${newCGPA.toFixed(2)}) exceeds the maximum possible value of 4.00. 
               This indicates that you may have entered incorrect information.
             </p>
@@ -596,7 +596,7 @@ function calculateCGPA() {
               - Unrealistic expected grades for new courses<br>
               - Data entry errors in course information
             </div>
-            <p class="text-sm mt-4" style="text-align: justify;">
+            <p class="text-sm margin3" style="text-align: justify;">
               Please review and correct your input data, then try calculating again.
             </p>
           </div>
@@ -605,19 +605,19 @@ function calculateCGPA() {
     `;
     } else {
         resultDiv.innerHTML = `
-      <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
+      <div class="grid gridc1 md:gridc1 gap-6">
         <div class="card">
-          <div class="card-header bg-muted/30 py-3">
-            <h3 class="card-title flex items-center gap-2 text-base">
-              <i class="fas fa-star text-amber-500"></i>
+          <div class="card-header bg-muted/30 padding2">
+            <h3 class="card-title flex itemsC gap1 text-base">
+              <i class="fas fa-star textA"></i>
               Projected Final CGPA
             </h3>
           </div>
-          <div class="card-content pt-4">
-            <div class="flex flex-col items-center justify-center">
+          <div class="card-content padding3">
+            <div class="flex fc itemsC justify-center">
               <div class="grad-txt">${newCGPA.toFixed(2)}</div>
-              <div class="flex items-center gap-2 mt-1">
-                <span class="${currentCGPA < newCGPA ? "text-green-500" : "text-amber-500"}">
+              <div class="flex itemsC gap1 mt-1">
+                <span class="${currentCGPA < newCGPA ? "textG" : "textA"}">
                   ${currentCGPA < newCGPA ? "+" : ""}${(newCGPA - currentCGPA).toFixed(2)}
                 </span>
                 <span class="text-muted-foreground">from current trimester</span>
@@ -626,7 +626,7 @@ function calculateCGPA() {
                 <div class="relative pt-1 w-full">
                   <div class="overflow-hidden h-2 mb-3 text-xs flex rounded bg-muted">
                     <div style="width: ${newCGPA * 25}%"
-                      class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-primary transition-all duration-500"></div>
+                      class="shadow-none flex fc text-center whitespace-nowrap text-white justify-center bg-primary transition-all duration-500"></div>
                   </div>
                 </div>
               </div>
@@ -635,23 +635,23 @@ function calculateCGPA() {
         </div>
         ${courses.length > 0 ? `
         <div class="card">
-          <div class="card-header bg-green-500/10 py-3">
-            <h3 class="card-title flex items-center gap-2 text-base">
-              <i class="fas fa-chart-line text-green-500"></i>
+          <div class="card-header bg-green-500/10 padding2">
+            <h3 class="card-title flex itemsC gap1 text-base">
+              <i class="fas fa-chart-line textG"></i>
               Projected Trimester GPA
             </h3>
           </div>
-          <div class="card-content pt-4">
-            <div class="flex flex-col items-center justify-center">
+          <div class="card-content padding3">
+            <div class="flex fc itemsC justify-center">
               <div class="grad-txt text-green-600">${currentTrimesterGPA.toFixed(2)}</div>
-              <div class="flex items-center gap-2 mt-1">
+              <div class="flex itemsC gap1 mt-1">
                 <span class="text-muted-foreground">Based on ${courses.length} course${courses.length > 1 ? 's' : ''}</span>
               </div>
               <div class="w-full mt-3">
                 <div class="relative pt-1 w-full">
                   <div class="overflow-hidden h-2 mb-3 text-xs flex rounded bg-muted">
                     <div style="width: ${currentTrimesterGPA * 25}%"
-                      class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500 transition-all duration-500"></div>
+                      class="shadow-none flex fc text-center whitespace-nowrap text-white justify-center bg-green-500 transition-all duration-500"></div>
                   </div>
                 </div>
               </div>
@@ -659,54 +659,54 @@ function calculateCGPA() {
           </div>
         </div>` : ''}
         <div class="card">
-          <div class="card-header py-3">
-            <h3 class="card-title flex items-center gap-2 text-base">
-              <i class="fas fa-table text-blue-500"></i>
+          <div class="card-header padding2">
+            <h3 class="card-title flex itemsC gap1 text-base">
+              <i class="fas fa-table textB"></i>
               Result Summary
             </h3>
           </div>
-          <div class="card-content space-y-3">
+          <div class="card-content margin4">
             <div class="space-y-2">
-              <div class="flex justify-between items-center">
+              <div class="flex justifyC itemsC">
                 <span>Current CGPA</span>
                 <span>${currentCGPA.toFixed(2)}</span>
               </div>
-              <div class="flex justify-between items-center">
+              <div class="flex justifyC itemsC">
                 <span>Completed Credits</span>
                 <span>${completedCredit.toFixed(1)}</span>
               </div>
               <div class="separator"></div>
               ${courses.length > 0 ? `
-              <div class="flex justify-between items-center">
+              <div class="flex justifyC itemsC">
                 <span>New Courses</span>
                 <span class="badge badge-outline">${courses.length}</span>
               </div>
-              <div class="flex justify-between items-center">
+              <div class="flex justifyC itemsC">
                 <span>New Course Credits</span>
                 <span>${newCourseCredits.toFixed(1)}</span>
               </div>
-              <div class="flex justify-between items-center">
+              <div class="flex justifyC itemsC">
                 <span>Trimester GPA</span>
                 <span class="text-green-600 font-semibold">${currentTrimesterGPA.toFixed(2)}</span>
               </div>
               <div class="separator"></div>
               ` : ""}
               ${retakeCourses.length > 0 ? `
-              <div class="flex justify-between items-center">
+              <div class="flex justifyC itemsC">
                 <span>Retake Courses</span>
                 <span class="badge badge-outline">${retakeCourses.length}</span>
               </div>
-              <div class="flex justify-between items-center">
+              <div class="flex justifyC itemsC">
                 <span>Retake Course Credits</span>
                 <span>${retakeCourseCredits.toFixed(1)}</span>
               </div>
-              <div class="flex justify-between items-center">
+              <div class="flex justifyC itemsC">
                 <span>Quality Point Improvement</span>
                 <span>${retakeImprovementPoints.toFixed(2)}</span>
               </div>
               <div class="separator"></div>
               ` : ""}
-              <div class="flex justify-between items-center">
+              <div class="flex justifyC itemsC">
                 <span>Total Credits After Completion</span>
                 <span>${totalCredits.toFixed(1)}</span>
               </div>
@@ -859,24 +859,24 @@ function calculateTuitionFee() {
     resultDiv.innerHTML = `
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title flex items-center gap-2">
-      <i class="fas fa-book-open text-purple-500"></i>
+    <h3 class="card-title flex itemsC gap1">
+      <i class="fas fa-book-open textP"></i>
       Taken Credits
     </h3>
   </div>
   <div class="card-content">
-    <div class="space-y-6">
+    <div class="margin5">
       <div>
-        <div class="flex justify-between items-center">
+        <div class="flex justifyC itemsC">
           <span>New Credits:</span>
           <span>${newCredit}</span>
         </div>
-        <div class="flex justify-between items-center">
+        <div class="flex justifyC itemsC">
           <span>Retake Credits:</span>
           <span>${retakeCredit}</span>
         </div>
         <div class="separator"></div>
-        <div class="flex justify-between items-center">
+        <div class="flex justifyC itemsC">
           <span>Total Credits:</span>
           <span class="badge badge-outline">${newCredit + retakeCredit}</span>
         </div>
@@ -886,13 +886,13 @@ function calculateTuitionFee() {
 </div>
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title flex items-center gap-2">
-      <i class="fas fa-calculator text-blue-500"></i>
+    <h3 class="card-title flex itemsC gap1">
+      <i class="fas fa-calculator textB"></i>
       Fee Calculation
     </h3>
   </div>
   <div class="card-content">
-    <div class="space-y-6">
+    <div class="margin5">
       <div>
         <table class="custom-table">
           <tbody>
@@ -915,25 +915,25 @@ function calculateTuitionFee() {
         ? '<span class="text-xs text-muted-foreground ml-2">(Higher discount applied)</span>'
         : ""}
               </td>
-              <td class="text-right text-amber-500">-${formatCurrency(regularDiscountAmount)}</td>
+              <td class="text-right textA">-${formatCurrency(regularDiscountAmount)}</td>
             </tr>` : ""}
             ${(siblingSpouseWaiver || 0) > 0 ? `
             <tr>
               <td>Sibling/Spouse Waiver</td>
               <td>${siblingSpouseWaiver}% of Tuition fee (Special waiver)</td>
-              <td class="text-right text-amber-500">-${formatCurrency((totalCreditFee * siblingSpouseWaiver) / 100)}</td>
+              <td class="text-right textA">-${formatCurrency((totalCreditFee * siblingSpouseWaiver) / 100)}</td>
             </tr>` : ""}
             ${(ethnicTribalWaiver || 0) > 0 ? `
             <tr>
               <td>Ethnic Groups/Tribal Waiver</td>
               <td>${ethnicTribalWaiver}% of Tuition fee (Special waiver)</td>
-              <td class="text-right text-amber-500">-${formatCurrency((totalCreditFee * ethnicTribalWaiver) / 100)}</td>
+              <td class="text-right textA">-${formatCurrency((totalCreditFee * ethnicTribalWaiver) / 100)}</td>
             </tr>` : ""}
             ${(disabilityWaiver || 0) > 0 ? `
             <tr>
               <td>Disability Waiver</td>
               <td>${disabilityWaiver}% of Tuition fee (Special waiver)</td>
-              <td class="text-right text-amber-500">-${formatCurrency((totalCreditFee * disabilityWaiver) / 100)}</td>
+              <td class="text-right textA">-${formatCurrency((totalCreditFee * disabilityWaiver) / 100)}</td>
             </tr>` : ""}
             ${lateRegistration ? `
             <tr>
@@ -952,30 +952,30 @@ function calculateTuitionFee() {
     </div>
   </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="grid gridc1 md:gridc2">
   <div class="card">
-    <div class="card-header bg-muted/30 py-3">
-      <h3 class="card-title flex items-center gap-2 text-base">
-        <i class="fas fa-coins text-amber-500"></i>
+    <div class="card-header bg-muted/30 padding2">
+      <h3 class="card-title flex itemsC gap1 text-base">
+        <i class="fas fa-coins textA"></i>
         Total Payable Fee
       </h3>
     </div>
-    <div class="card-content pt-4">
-      <div class="flex flex-col items-center justify-center">
+    <div class="card-content padding3">
+      <div class="flex fc itemsC justify-center">
         <div class="grad-txt">${formatCurrency(finalAmount)}</div>
       </div>
     </div>
   </div>
   <div class="card">
     <div class="card-header">
-      <h3 class="card-title flex items-center gap-2">
-        <i class="fas fa-money-bill-wave text-green-500"></i>
+      <h3 class="card-title flex itemsC gap1">
+        <i class="fas fa-money-bill-wave textG"></i>
         Installment Calculation
       </h3>
       <div class="card-description">${installmentMethod}</div>
     </div>
     <div class="card-content">
-      <div class="space-y-6">
+      <div class="margin5">
         <div>
           <div class="overflow-hidden border rounded-lg">
             ${isOnlyTrimesterFee ? `

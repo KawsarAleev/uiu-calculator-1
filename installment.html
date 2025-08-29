@@ -49,22 +49,22 @@
           </a><span>&gt;</span><a href="index.html">Calculator</a><span>/ <span
               class="bc-current-page">Installment</span>
         </nav>
-        <div class="min-h-screen flex flex-col">
-          <main class="flex-1 p-4 md:p-8">
-            <div class="container mx-auto max-w-4xl">
+        <div class="min-h-screen flex fc">
+          <main class="flex1 padding1 md:p-8">
+            <div class="container mxa maxw">
               <div class="tabs">
                 <div id="cgpa-tab" class="tabs-content">
                   <div class="tabs">
                     <div id="new-courses" class="tabs-content">
                       <div class="card">
-                        <div class="card-header py-3">
-                          <h3 class="card-title flex items-center gap-2 text-base">
-                            <i class="fas fa-plus-circle text-green-500"></i>
+                        <div class="card-header padding2">
+                          <h3 class="card-title flex itemsC gap1 text-base">
+                            <i class="fas fa-plus-circle textG"></i>
                             Add New Courses
                           </h3>
                         </div>
                         <div class="card-content">
-                          <div class="grid grid-rows-2 grid-cols-2 gap-3 mb-3">
+                          <div class="grid grid-rows-2 gridc2 gap2 mb-3">
                             <div>
                               <label for="courseCredit" class="text-xs">Credit Hours</label>
                               <select id="courseCredit" class="dark-select h-8">
@@ -81,11 +81,11 @@
                               </select>
                             </div>
                           </div>
-                          <button id="addCourseBtn" class="btn w-full h-8 text-xs flex items-center gap-2">
+                          <button id="addCourseBtn" class="btn w-full h-8 text-xs flex itemsC gap1">
                             <i class="fas fa-plus-circle text-black-500"></i>
                             Add Course
                           </button>
-                          <div id="coursesList" class="mt-4" style="display: none">
+                          <div id="coursesList" class="margin3" style="display: none">
                             <label>Added Courses</label>
                             <div class="scroll-area">
                               <table id="coursesTable">
@@ -107,14 +107,14 @@
                     </div>
                     <div id="retake-courses" class="tabs-content">
                       <div class="card">
-                        <div class="card-header py-3">
-                          <h3 class="card-title flex items-center gap-2 text-base">
-                            <i class="fas fa-plus-circle text-green-500"></i>
+                        <div class="card-header padding2">
+                          <h3 class="card-title flex itemsC gap1 text-base">
+                            <i class="fas fa-plus-circle textG"></i>
                             Add Retake Courses
                           </h3>
                         </div>
                         <div class="card-content">
-                          <div class="grid grid-cols-1 gap-3 mb-3">
+                          <div class="grid gridc1 gap2 mb-3">
                             <div>
                               <label for="retakeCourseCredit" class="text-xs">Credit Hours</label>
                               <select id="retakeCourseCredit" class="dark-select h-8">
@@ -125,7 +125,7 @@
                                 <option value="4">4.0</option>
                               </select>
                             </div>
-                            <div class="grid grid-cols-2 gap-3 md:grid-cols-2">
+                            <div class="grid gridc2 gap2 md:gridc2">
                               <div>
                                 <label for="previousGrade" class="text-xs">Previous Grade</label>
                                 <select id="previousGrade" class="dark-select h-8">
@@ -138,11 +138,11 @@
                               </div>
                             </div>
                           </div>
-                          <button id="addRetakeCourseBtn" class="btn w-full h-8 text-xs flex items-center gap-2">
+                          <button id="addRetakeCourseBtn" class="btn w-full h-8 text-xs flex itemsC gap1">
                             <i class="fas fa-plus-circle text-black-500"></i>
                             Add Retake Course
                           </button>
-                          <div id="retakeCoursesList" class="mt-4" style="display: none">
+                          <div id="retakeCoursesList" class="margin3" style="display: none">
                             <label>Added Retake Courses</label>
                             <div class="scroll-area">
                               <table id="retakeCoursesTable">
@@ -164,31 +164,31 @@
                       </div>
                     </div>
                   </div>
-                  <div class="flex flex-col md:flex-row gap-3 mt-4">
-                    <button id="calculateCGPABtn" class="btn flex-1 h-9 text-xs flex items-center gap-2">
+                  <div class="flex fc md:flex-row gap2 margin3">
+                    <button id="calculateCGPABtn" class="btn flex1 h-9 text-xs flex itemsC gap1">
                       <i class="fas fa-calculator"></i>
                       Calculate CGPA
                     </button>
-                    <button id="resetCGPABtn" class="btn-outline btn flex-1 h-9 text-xs flex items-center gap-2">
+                    <button id="resetCGPABtn" class="btn-outline btn flex1 h-9 text-xs flex itemsC gap1">
                       <i class="fas fa-undo"></i>
                       Reset Calculator
                     </button>
                   </div>
                 </div>
                 <div id="tuition-tab" class="tabs-content active">
-                  <div class="card mb-6">
+                  <div class="card margin2">
                     <div class="card-header">
-                      <h3 class="card-title flex items-center gap-2">
-                        <i class="fas fa-book-open text-green-500"></i>
+                      <h3 class="card-title flex itemsC gap1">
+                        <i class="fas fa-book-open textG"></i>
                         Credit Hours Information
                       </h3>
                     </div>
                     <div class="card-content">
-                      <div class="grid grid-rows-2 grid-cols-2 gap-3 mb-3">
+                      <div class="grid grid-rows-2 gridc2 gap2 mb-3">
                         <div class="space-y-2">
                           <label for="newCredit">New Credit Hours</label>
                           <input id="newCredit" type="number" min="0" step="1" placeholder="Example: 13" />
-                          <div id="newCreditError" class="text-xs text-red-500" style="display: none">
+                          <div id="newCreditError" class="text-xs textR" style="display: none">
                             Please enter new credit hours
                           </div>
                         </div>
@@ -199,20 +199,20 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card mb-6">
+                  <div class="card margin2">
                     <div class="card-header">
-                      <h3 class="card-title flex items-center gap-2">
-                        <i class="fas fa-credit-card text-blue-500"></i>
+                      <h3 class="card-title flex itemsC gap1">
+                        <i class="fas fa-credit-card textB"></i>
                         Fee Information
                       </h3>
                     </div>
                     <div class="card-content">
-                      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div class="grid gridc1 md:gridc2 gap-6">
                         <div class="space-y-2">
                           <label for="perCreditFee">Per Credit Fee</label>
                           <input id="perCreditFee" type="number" min="0" step="100" value="6500"
                             placeholder="Example: 6500" />
-                          <div id="perCreditFeeError" class="text-xs text-red-500" style="display: none">
+                          <div id="perCreditFeeError" class="text-xs textR" style="display: none">
                             Please enter per credit fee
                           </div>
                         </div>
@@ -220,7 +220,7 @@
                           <label for="trimesterFee">Trimester Fee</label>
                           <input id="trimesterFee" type="number" min="0" step="100" value="6500"
                             placeholder="Example: 6500" />
-                          <div id="trimesterFeeError" class="text-xs text-red-500" style="display: none">
+                          <div id="trimesterFeeError" class="text-xs textR" style="display: none">
                             Please enter trimester fee
                           </div>
                           <p class="toggle-description">
@@ -230,15 +230,15 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card mb-6">
+                  <div class="card margin2">
                     <div class="card-header">
-                      <h3 class="card-title flex items-center gap-2">
-                        <i class="fas fa-percentage text-amber-500"></i>
+                      <h3 class="card-title flex itemsC gap1">
+                        <i class="fas fa-percentage textA"></i>
                         Regular Discounts
                       </h3>
                     </div>
                     <div class="card-content">
-                      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div class="grid gridc1 md:gridc2 gap-6">
                         <div class="space-y-2">
                           <label for="waiver">Waiver</label>
                           <select id="waiver" class="dark-select h-8">
@@ -263,8 +263,8 @@
                       </div>
                       <div class="mt-6">
                         <div class="toggle-container">
-                          <div class="toggle-label flex items-start gap-2">
-                            <i class="fas fa-percentage text-blue-500"></i>
+                          <div class="toggle-label flex items-start gap1">
+                            <i class="fas fa-percentage textB"></i>
                             <div>
                               <span>Apply waiver/scholarship in first installment</span>
                               <p class="toggle-description">
@@ -280,15 +280,15 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card mb-6">
+                  <div class="card margin2">
                     <div class="card-header">
-                      <h3 class="card-title flex items-center gap-2">
-                        <i class="fas fa-gift text-purple-500"></i>
+                      <h3 class="card-title flex itemsC gap1">
+                        <i class="fas fa-gift textP"></i>
                         Special Discounts (Stackable)
                       </h3>
                     </div>
                     <div class="card-content">
-                      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div class="grid gridc1 md:gridc2 gap-6">
                         <div class="space-y-2">
                           <label for="siblingSpouseWaiver">Sibling/Spouse Waiver</label>
                           <select id="siblingSpouseWaiver" class="dark-select h-8">
@@ -312,22 +312,22 @@
                           </select>
                         </div>
                       </div>
-                      <p class="text-xs note-b mt-4">
+                      <p class="text-xs note-b margin3">
                         These waivers stack with regular waivers/scholarships and apply to all students who qualify
                       </p>
                     </div>
                   </div>
-                  <div class="card mb-6">
+                  <div class="card margin2">
                     <div class="card-header">
-                      <h3 class="card-title flex items-center gap-2">
-                        <i class="fas fa-money-bill-wave text-green-500"></i>
+                      <h3 class="card-title flex itemsC gap1">
+                        <i class="fas fa-money-bill-wave textG"></i>
                         Additional Fees
                       </h3>
                     </div>
                     <div class="card-content">
                       <div class="toggle-container">
-                        <div class="toggle-label flex items-start gap-2">
-                          <i class="fas fa-clock text-red-500"></i>
+                        <div class="toggle-label flex items-start gap1">
+                          <i class="fas fa-clock textR"></i>
                           <div>
                             <span>Late Registration</span>
                             <p class="toggle-description">
@@ -342,12 +342,12 @@
                       </div>
                     </div>
                   </div>
-                  <div class="flex flex-col md:flex-row gap-4">
-                    <button id="calculateFeeBtn" class="btn flex-1 flex items-center gap-2">
+                  <div class="flex fc md:flex-row gap3">
+                    <button id="calculateFeeBtn" class="btn flex1 flex itemsC gap1">
                       <i class="fas fa-calculator"></i>
                       Calculate Fee
                     </button>
-                    <button id="resetFeeBtn" class="btn-outline btn flex-1 flex items-center gap-2">
+                    <button id="resetFeeBtn" class="btn-outline btn flex1 flex itemsC gap1">
                       <i class="fas fa-undo"></i>
                       Reset Calculator
                     </button>

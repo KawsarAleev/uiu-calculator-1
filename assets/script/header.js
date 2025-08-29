@@ -44,9 +44,9 @@ class globalHeader extends HTMLElement {
     </div>
     <div class="menu-content">
 <div class="card" style="background: rgba(0, 0, 0, 0.2);     border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 10px;">
-    <div class="card-header py-3">
-        <h3 class="card-title flex items-center gap-2 text-base">
-            <i class="fas fa-user text-amber-500" style="margin-right: 3px;"></i>
+    <div class="card-header padding2">
+        <h3 class="card-title flex itemsC gap1 text-base">
+            <i class="fas fa-user textA" style="margin-right: 3px;"></i>
             Enter your name
         </h3>
         </div>

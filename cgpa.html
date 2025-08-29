@@ -48,9 +48,9 @@
             </lord-icon>
           </a><span>&gt;</span><a href="index.html">Calculator</a><span>/ <span class="bc-current-page">CGPA</span>
         </nav>
-        <div class="min-h-screen flex flex-col">
-          <main class="flex-1 p-4 md:p-8">
-            <div class="container mx-auto max-w-4xl">
+        <div class="min-h-screen flex fc">
+          <main class="flex1 padding1 md:p-8">
+            <div class="container mxa maxw">
               <div class="acc-wrapper">
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
                 <details class="acc-item" style="margin-bottom: 10px;">
@@ -60,10 +60,10 @@
                   <div class="acc-details-item">
                     <div class="download-buttons">
                       <a href="./assets/image/UIU-Grading-System-ProgNerds.png" download class="download-btn">
-                        <i class="fa-solid fa-download text-green-500"></i> Save as Image
+                        <i class="fa-solid fa-download textG"></i> Save as Image
                       </a>
                       <button onclick="downloadTableAsCSV()" class="download-btn">
-                        <i class="fa-solid fa-file-csv text-blue-500"></i> Save as CSV
+                        <i class="fa-solid fa-file-csv textB"></i> Save as CSV
                       </button>
                     </div>
                     <table id="grading-table" border="1" cellpadding="5">
@@ -120,10 +120,10 @@
                   <summary class="acc-question-item">GPA & CGPA Calculation
                   </summary>
                   <div class="acc-details-item">
-                    <div class="card mb-6">
+                    <div class="card margin2">
                       <div class="card-header">
-                        <h3 class="card-title flex items-center gap-2">
-                          <i class="fas fa-chart-line text-blue-500"></i>
+                        <h3 class="card-title flex itemsC gap1">
+                          <i class="fas fa-chart-line textB"></i>
                           GPA Calculation
                         </h3>
                       </div>
@@ -155,10 +155,10 @@
                         </p>
                       </div>
                     </div>
-                    <div class="card mb-6">
+                    <div class="card margin2">
                       <div class="card-header">
-                        <h3 class="card-title flex items-center gap-2">
-                          <i class="fas fa-graduation-cap text-green-500"></i>
+                        <h3 class="card-title flex itemsC gap1">
+                          <i class="fas fa-graduation-cap textG"></i>
                           CGPA Calculation
                         </h3>
                       </div>
@@ -202,26 +202,26 @@
                 </details>
               </div>
               <div>
-                <div class="card mb-4">
-                  <div class="card-header py-3">
-                    <h3 class="card-title flex items-center gap-2 text-base">
-                      <i class="fas fa-graduation-cap text-blue-500"></i>
+                <div class="card margin1">
+                  <div class="card-header padding2">
+                    <h3 class="card-title flex itemsC gap1 text-base">
+                      <i class="fas fa-graduation-cap textB"></i>
                       Current Academic Status
                     </h3>
                   </div>
                   <div class="card-content">
-                    <div class="grid grid-rows-2 grid-cols-2 gap-3 mb-3">
+                    <div class="grid grid-rows-2 gridc2 gap2 mb-3">
                       <div class="space-y-1.5">
                         <label for="completedCredit">Completed Credits</label>
                         <input id="completedCredit" type="number" min="0" step="0.5" placeholder="Example: 95" />
-                        <div id="completedCreditError" class="text-xs text-red-500" style="display: none">
+                        <div id="completedCreditError" class="text-xs textR" style="display: none">
                           Please enter completed credit hours
                         </div>
                       </div>
                       <div class="space-y-1.5">
                         <label for="currentCGPA">Current CGPA</label>
                         <input id="currentCGPA" type="number" min="0" max="4" step="0.01" placeholder="Example: 3.50" />
-                        <div id="currentCGPAError" class="text-xs text-red-500" style="display: none">
+                        <div id="currentCGPAError" class="text-xs textR" style="display: none">
                           Please enter your current CGPA
                         </div>
                       </div>
@@ -242,14 +242,14 @@
                   </div>
                   <div id="new-courses" class="tabs-content active">
                     <div class="card">
-                      <div class="card-header py-3">
-                        <h3 class="card-title flex items-center gap-2 text-base">
-                          <i class="fas fa-plus-circle text-green-500"></i>
+                      <div class="card-header padding2">
+                        <h3 class="card-title flex itemsC gap1 text-base">
+                          <i class="fas fa-plus-circle textG"></i>
                           Add New Courses
                         </h3>
                       </div>
                       <div class="card-content">
-                        <div class="grid grid-rows-2 grid-cols-2 gap-3 mb-3">
+                        <div class="grid grid-rows-2 gridc2 gap2 mb-3">
                           <div>
                             <label for="courseCredit" class="text-xs">Credit Hours</label>
                             <select id="courseCredit" class="dark-select h-8">
@@ -266,12 +266,12 @@
                             </select>
                           </div>
                         </div>
-                        <button id="addCourseBtn" class="btn w-full h-8 text-xs flex items-center gap-2">
+                        <button id="addCourseBtn" class="btn w-full h-8 text-xs flex itemsC gap1">
                           <i class="fas fa-plus-circle text-black-500"></i>
                           Add Course
                         </button>
-                        <div id="coursesList" class="mt-4" style="display: none">
-                          <label class="text-amber-500" style="text-align: center;">Added New Courses</label>
+                        <div id="coursesList" class="margin3" style="display: none">
+                          <label class="textA" style="text-align: center;">Added New Courses</label>
                           <div class="scroll-area">
                             <table id="coursesTable">
                               <thead>
@@ -292,14 +292,14 @@
                   </div>
                   <div id="retake-courses" class="tabs-content">
                     <div class="card">
-                      <div class="card-header py-3">
-                        <h3 class="card-title flex items-center gap-2 text-base">
-                          <i class="fas fa-plus-circle text-green-500"></i>
+                      <div class="card-header padding2">
+                        <h3 class="card-title flex itemsC gap1 text-base">
+                          <i class="fas fa-plus-circle textG"></i>
                           Add Retake Courses
                         </h3>
                       </div>
                       <div class="card-content">
-                        <div class="grid grid-cols-1 gap-3 mb-3">
+                        <div class="grid gridc1 gap2 mb-3">
                           <div>
                             <label for="retakeCourseCredit" class="text-xs">Credit Hours</label>
                             <select id="retakeCourseCredit" class="dark-select h-8">
@@ -310,7 +310,7 @@
                               <option value="4">4.0</option>
                             </select>
                           </div>
-                          <div class="grid grid-cols-2 gap-3 md:grid-cols-2">
+                          <div class="grid gridc2 gap2 md:gridc2">
                             <div>
                               <label for="previousGrade" class="text-xs">Previous Grade</label>
                               <select id="previousGrade" class="dark-select h-8">
@@ -323,12 +323,12 @@
                             </div>
                           </div>
                         </div>
-                        <button id="addRetakeCourseBtn" class="btn w-full h-8 text-xs flex items-center gap-2">
+                        <button id="addRetakeCourseBtn" class="btn w-full h-8 text-xs flex itemsC gap1">
                           <i class="fas fa-plus-circle text-black-500"></i>
                           Add Retake Course
                         </button>
-                        <div id="retakeCoursesList" class="mt-4" style="display: none">
-                          <label class="text-amber-500" style="text-align: center;">Added Retake Courses</label>
+                        <div id="retakeCoursesList" class="margin3" style="display: none">
+                          <label class="textA" style="text-align: center;">Added Retake Courses</label>
                           <div class="scroll-area">
                             <table id="retakeCoursesTable">
                               <thead>
@@ -349,12 +349,12 @@
                     </div>
                   </div>
                 </div>
-                <div class="flex flex-col md:flex-row gap-3 mt-4">
-                  <button id="calculateCGPABtn" class="btn flex-1 h-9 text-xs flex items-center gap-2">
+                <div class="flex fc md:flex-row gap2 margin3">
+                  <button id="calculateCGPABtn" class="btn flex1 h-9 text-xs flex itemsC gap1">
                     <i class="fas fa-calculator"></i>
                     Calculate CGPA
                   </button>
-                  <button id="resetCGPABtn" class="btn-outline btn flex-1 h-9 text-xs flex items-center gap-2">
+                  <button id="resetCGPABtn" class="btn-outline btn flex1 h-9 text-xs flex itemsC gap1">
                     <i class="fas fa-undo"></i>
                     Reset Calculator
                   </button>
