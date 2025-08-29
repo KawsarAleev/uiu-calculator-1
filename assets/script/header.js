@@ -121,7 +121,6 @@ class globalHeader extends HTMLElement {
 }
 customElements.define("header-x", globalHeader);
 
-
 function getGreeting() {
     const hour = new Date().getHours();
     if (hour >= 5 && hour < 12) return "Good Morning";
@@ -130,6 +129,7 @@ function getGreeting() {
     if (hour >= 18 && hour < 24) return "Good Evening";
     return "Good Night";
 }
+
 function updateGreeting() {
     const name = localStorage.getItem('username') || "UIUian";
     const greeting = getGreeting();
@@ -140,6 +140,7 @@ function updateGreeting() {
         greetingEl.innerHTML = `${greeting}, ${name} !! 🙌`;
     }
 }
+
 updateGreeting();
 setInterval(updateGreeting, 60000);
 window.addEventListener('resize', updateGreeting);
@@ -151,9 +152,11 @@ if (usernameInput) {
         updateGreeting();
     });
 }
+
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const offCanvasMenu = document.getElementById('offCanvasMenu');
 const closeBtn = document.getElementById('closeBtn');
+
 if (hamburgerBtn && offCanvasMenu && closeBtn) {
     hamburgerBtn.addEventListener('click', () => {
         offCanvasMenu.classList.add('active');
@@ -168,9 +171,6 @@ if (hamburgerBtn && offCanvasMenu && closeBtn) {
     });
 }
 
-
-
-
 const lastUpdatedDate = new Date("2025-08-24T00:00:00");
 const timeAgoEl = document.getElementById("timeAgo");
 
@@ -184,7 +184,6 @@ function updateTimeAgo() {
     let minutes = now.getMinutes() - lastUpdatedDate.getMinutes();
     let seconds = now.getSeconds() - lastUpdatedDate.getSeconds();
 
-    // Adjust negative values
     if (seconds < 0) { seconds += 60; minutes -= 1; }
     if (minutes < 0) { minutes += 60; hours -= 1; }
     if (hours < 0) { hours += 24; days -= 1; }

@@ -25,19 +25,16 @@
 }
 
 .gradient-text {
-  font-family: 'Lobster', cursive!important;
+  font-family: 'Lobster', cursive !important;
   font-size: 40px !important;
   margin-top: 20px;
   text-align: center;
   padding: 10px;
   font-weight: bold;
-  background: linear-gradient(
-  270deg,
-  #fff,
-  #f37021,
-  #fff
-);
-
+  background: linear-gradient(270deg,
+      #fff,
+      #f37021,
+      #fff);
   background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

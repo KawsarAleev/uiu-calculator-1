@@ -54,7 +54,6 @@ class globalNav extends HTMLElement {
 }
 customElements.define("nav-x", globalNav);
 
-
 const shareButton = document.getElementById("shareButton");
 const shareModal = document.getElementById("shareModal");
 const overlay = document.getElementById("overlay");

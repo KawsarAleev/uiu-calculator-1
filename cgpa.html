@@ -1,684 +1,380 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Satisfy&family=Lobster&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Satisfy&family=Lobster&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
   <link rel="stylesheet" href="./assets/css/loader.css">
   <link rel="stylesheet" href="./assets/css/main.css">
   <link rel="stylesheet" href="./assets/css/nav.css">
-  <title>UIU CGPA Calculator</title>  
+  <title>UIU CGPA Calculator</title>
 </head>
+
 <body>
-
-
-
-
-
-
-
-
-
-<div id="welcomeOverlay">
-  <div class="overlay-content">
-    <div class="overlay-left">
-      <img src="./assets/image/greeting.svg" alt="Calculator Image">
-    </div>
-    <div class="overlay-right">
-      <h2 id="overlayTitle">Enter your name for personalized greeting 👋</h2>
-      <input type="text" id="firstTimeInput" placeholder="Your name">
-      <button id="saveNameBtn">Save</button>
-      <div id="welcomeMsg">Welcome!</div>
+  <div id="welcomeOverlay">
+    <div class="overlay-content">
+      <div class="overlay-left">
+        <img src="./assets/image/greeting.svg" alt="Calculator Image">
+      </div>
+      <div class="overlay-right">
+        <h2 id="overlayTitle">Enter your name for personalized greeting 👋</h2>
+        <input type="text" id="firstTimeInput" placeholder="Your name">
+        <button id="saveNameBtn">Save</button>
+        <div id="welcomeMsg">Welcome!</div>
+      </div>
     </div>
   </div>
-</div>
-
-<h1 id="greeting" style="color:#fff;"></h1>
-
-<style>
-  #welcomeOverlay {
-    position: fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:#000;
-    display:none;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-  }
-
-  .overlay-content {
-    display:flex;
-    background:#000;
-    padding:60px;
-    text-align:center;
-    color:#fff;
-    align-items:center;
-    gap:60px;
-    max-width:1150px;
-    width:90%;
-  }
-
-  .overlay-left img {
-  width:500px;
-  height:500px; 
-  object-fit: contain;
-  }
-
-  .overlay-right {
-    flex:1;
-    text-align:left;
-  }
-
-  .overlay-right h2 {
-    margin-bottom:15px;
-    font-size:20px!important;
-  }
-
-  .overlay-right input {
-    width:100%;
-    padding:10px;
-    font-size:20px;
-    margin-bottom:15px;
-    border:1px solid #424242;
-    outline:none;
-  }
-
-  .overlay-right button {
-    width:100%;
-    padding:10px;
-    font-size:20px;
-    background:#f37021;
-    color:#fff;
-    border:none;
-    cursor:pointer;
-    margin-bottom:25px;
-  }
-
-  #welcomeMsg {
-    font-size:36px!important;
-    font-weight:bold;
-    text-align: center;
-    color:#f37021;
-    opacity:0;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-
-  @media (max-width: 768px) {
-    .overlay-content {
-      flex-direction: column;
-      text-align:center;
-      padding:40px;
-      gap:20px;
-    }
-
-    .overlay-left img {
-      max-width:100%;
-  height:300px; 
-
-    }
-
-    .overlay-right h2 {
-      font-size:13px!important;
-    }
-
-    .overlay-right input {
-      font-size:16px;
-      padding:10px;
-    }
-
-    .overlay-right button {
-      font-size:16px;
-      padding:10px;
-    }
-
-    #welcomeMsg {
-      font-size:30px!important;
-    }
-  }
-</style>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const welcomeOverlay = document.getElementById("welcomeOverlay");
-    const firstTimeInput = document.getElementById("firstTimeInput");
-    const saveNameBtn = document.getElementById("saveNameBtn");
-    const welcomeMsg = document.getElementById("welcomeMsg");
-    const overlayTitle = document.getElementById("overlayTitle");
-
-    const saveName = () => {
-        const name = firstTimeInput.value.trim() || "UIUian";
-        localStorage.setItem("username", name);
-
-        firstTimeInput.style.display = "none";
-        saveNameBtn.style.display = "none";
-        overlayTitle.style.display = "none";
-
-        welcomeMsg.textContent = `Welcome to UIU Calculator, ${name}! 👋`;
-        welcomeMsg.style.display = "block";
-        setTimeout(() => {
-            welcomeMsg.style.opacity = 1;
-            welcomeMsg.style.transform = "translateY(-10px)";
-        }, 50);
-
-        if (typeof updateGreeting === "function") updateGreeting();
-
-        setTimeout(() => location.reload(), 2000);
-    };
-
-    if (!localStorage.getItem("username")) {
-        welcomeOverlay.style.display = "flex";
-    } else {
-        if (typeof updateGreeting === "function") updateGreeting();
-    }
-
-    saveNameBtn.addEventListener("click", saveName);
-    firstTimeInput.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") saveName();
-    });
-});
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<header-x></header-x>
-<nav-x></nav-x>
-<div class="content">
+  <h1 id="greeting" style="color:#fff;"></h1>
+  <header-x></header-x>
+  <nav-x></nav-x>
+  <div class="content">
     <div class="inner-content">
-        <div id="preloader">
-            <span class="loader"></span>
-            <div class="gradient-text">CGPA<br>Calculator</div>
-        </div>
-        <div id="content-preload" class="fadeIn">
-    <nav class="breadcrumb"><a href="index.html">
-<script src="https://cdn.lordicon.com/lordicon.js"></script>
-<lord-icon
-    src="https://cdn.lordicon.com/jeuxydnh.json"
-    trigger="loop"
-    stroke="bold"
-    colors="primary:#ffffff,secondary:#f37021"
-    style="width:20px;height:15px">
-</lord-icon>
-        </a><span>&gt;</span><a href="index.html">Calculator</a><span>/ <span class="bc-current-page">CGPA</span>
-    </nav>
-  <div class="min-h-screen flex flex-col">
-    <main class="flex-1 p-4 md:p-8">
-      <div class="container mx-auto max-w-4xl">
-            <div class="acc-wrapper">
-                
-              
-
-
-<!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<details class="acc-item" style="margin-bottom: 10px;">
-  <summary class="acc-question-item">
-    UIU Grading System
-
-
-  </summary>
-<div class="acc-details-item">
-
-<div class="download-buttons">
-  <a href="./assets/image/UIU-Grading-System-ProgNerds.png" download class="download-btn">
-    <i class="fa-solid fa-download text-green-500"></i> Save as Image
-  </a>
-  <button onclick="downloadTableAsCSV()" class="download-btn">
-    <i class="fa-solid fa-file-csv text-blue-500"></i> Save as CSV
-  </button>
-</div>
-
-
-  <table id="grading-table">
-    <tr>
-      <th>Letter Grade</th>
-      <th>Grade Point</th>
-      <th>Marks (%)</th>
-    </tr>
-    <tr>
-      <td>A</td><td>4.00</td><td>90 - 100</td>
-    </tr>
-    <tr>
-      <td>A-</td><td>3.67</td><td>86 - 89</td>
-    </tr>
-    <tr>
-      <td>B+</td><td>3.33</td><td>82 - 85</td>
-    </tr>
-    <tr>
-      <td>B</td><td>3.00</td><td>78 - 81</td>
-    </tr>
-    <tr>
-      <td>B-</td><td>2.67</td><td>74 - 77</td>
-    </tr>
-    <tr>
-      <td>C+</td><td>2.33</td><td>70 - 73</td>
-    </tr>
-    <tr>
-      <td>C</td><td>2.00</td><td>66 - 69</td>
-    </tr>
-    <tr>
-      <td>C-</td><td>1.67</td><td>62 - 65</td>
-    </tr>
-    <tr>
-      <td>D+</td><td>1.33</td><td>58 - 61</td>
-    </tr>
-    <tr>
-      <td>D</td><td>1.00</td><td>55 - 57</td>
-    </tr>
-    <tr>
-      <td>F</td><td>0.00</td><td>0 - 54</td>
-    </tr>
-  </table>
-</div>
-
-
-</details>
-
-<style>
-.download-buttons {
-  display: flex;
-  gap: 10px;       
-}
-
-.download-buttons i{
-  margin-right: 5px; 
-  font-size: 11px!important;      
-}
-
-.download-buttons .download-btn {
-  flex: 1;           
-  display: flex;     
-  align-items: center;
-  justify-content: center;
-  padding: 5px;
-   background: #202020;
-   border-radius: 2px;
-  color: #fff;
-  font-size: 13px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.download-buttons .download-btn:hover {
- background: #f37021;  
-  color: #fff;
-}
-
-</style>
-
-<!-- Save As CSV -->
-<script>
-function downloadTableAsCSV() {
-  const table = document.getElementById("grading-table");
-  let csv = [];
-  
-  for (let row of table.rows) {
-    let cols = [];
-    for (let cell of row.cells) {
-      cols.push(cell.innerText);
-    }
-    csv.push(cols.join(","));
-  }
-  
-  const csvFile = new Blob([csv.join("\n")], { type: "text/csv" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(csvFile);
-  link.download = "UIU-Grading-System-ProgNerds.csv";
-  link.click();
-}
-</script>
-
-
-
-
-
-
-              
-                <details class="acc-item">
-                    <summary class="acc-question-item">GPA & CGPA Calculation
-                    </summary>
-                    <div class="acc-details-item">
-                        <div class="card mb-6">
-                            <div class="card-header">
-  <h3 class="card-title flex items-center gap-2">
-    <i class="fas fa-chart-line text-blue-500"></i>
-    GPA Calculation
-  </h3>
-</div>
-                            <div class="card-content">
-                                <p class="note-g">
-                                    $$
-                                    \text{GPA}
-                                    = \frac{\sum (\text{Grade Point} \times \text{Credit Hours})}{\sum \text{Credit Hours}}
-                                    $$
-                                <p>
-                                    <strong>Steps:</strong><br>
-                                    (01) Convert each course's percentage or letter grade to the corresponding grade
-                                    point (see UIU Grading System).<br>
-                                    (02) Multiply the grade point by the credit hours of the course.<br>
-                                    (03) Add up all the results from the previous step.<br>
-                                    (04) Divide the total by the sum of all credit hours.<br>
-                                </p>
-                                <p><strong>Example:</strong><br>
-                                    If you took 3 courses with grades A (1 credit), B+ (3 credits), and B (3 credits):
-                                <p class="note-b">
-                                    $$
-                                    \begin{aligned}
-                                    \text{GPA}
-                                    &= \frac{(4.00 \times 1) + (3.33 \times 3) + (3.00 \times 3)}{1 + 3 + 3} \\
-                                    &= \frac{4 + 9.99 + 9}{7} \\
-                                    &= 3.29
-                                    \end{aligned}
-                                    $$
-                                </p>
-                            </div>
-                        </div>
-                        <div class="card mb-6">
-                            <div class="card-header">
-  <h3 class="card-title flex items-center gap-2">
-    <i class="fas fa-graduation-cap text-green-500"></i>
-    CGPA Calculation
-  </h3>
-</div>
-                            <div class="card-content">
-                                <p class="note-g">
-                                    $$
-                                    \text{CGPA}
-                                    =
-                                    \frac{
-                                    \text{GPA}_1 \times \text{Credits}_1
-                                    + \text{GPA}_2 \times \text{Credits}_2
-                                    + \dots
-                                    }{
-                                    \text{Total Credits}
-                                    }
-                                    $$
-                                </p>
-                                <p>
-                                    <strong>Steps:</strong><br>
-                                    (01) Calculate the GPA for each trimester using the formula above.<br>
-                                    (02) Multiply each trimester's GPA by the total credit hours of that trimester.<br>
-                                    (03) Add up all the results from step 2.<br>
-                                    (04) Divide the total by the sum of all credit hours from all trimesters.<br>
-                                </p>
-                                <p><strong>Example:</strong><br>
-                                    If you completed 2 trimesters with GPA 3.30 (11 credits) and 3.50 (13 credits):
-                                </p>
-                                <p class="note-b">
-                                    $$
-                                    \begin{aligned}
-                                    \text{CGPA}
-                                    &= \frac{(3.30 \times 11) + (3.50 \times 13)}{11 + 13} \\
-                                    &= \frac{36.3 + 45.5}{24} \\
-                                    &= 3.38
-                                    \end{aligned}
-                                    $$
-                                </p>
-                            </div>
-                        </div>
+      <div id="preloader">
+        <span class="loader"></span>
+        <div class="gradient-text">CGPA<br>Calculator</div>
+      </div>
+      <div id="content-preload" class="fadeIn">
+        <nav class="breadcrumb"><a href="index.html">
+            <script src="https://cdn.lordicon.com/lordicon.js"></script>
+            <lord-icon src="https://cdn.lordicon.com/jeuxydnh.json" trigger="loop" stroke="bold"
+              colors="primary:#ffffff,secondary:#f37021" style="width:20px;height:15px">
+            </lord-icon>
+          </a><span>&gt;</span><a href="index.html">Calculator</a><span>/ <span class="bc-current-page">CGPA</span>
+        </nav>
+        <div class="min-h-screen flex flex-col">
+          <main class="flex-1 p-4 md:p-8">
+            <div class="container mx-auto max-w-4xl">
+              <div class="acc-wrapper">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+                <details class="acc-item" style="margin-bottom: 10px;">
+                  <summary class="acc-question-item">
+                    UIU Grading System
+                  </summary>
+                  <div class="acc-details-item">
+                    <div class="download-buttons">
+                      <a href="./assets/image/UIU-Grading-System-ProgNerds.png" download class="download-btn">
+                        <i class="fa-solid fa-download text-green-500"></i> Save as Image
+                      </a>
+                      <button onclick="downloadTableAsCSV()" class="download-btn">
+                        <i class="fa-solid fa-file-csv text-blue-500"></i> Save as CSV
+                      </button>
                     </div>
+                    <table id="grading-table" border="1" cellpadding="5">
+                      <tr>
+                        <th>Letter Grade</th>
+                        <th>Grade Point</th>
+                        <th>Marks (%)</th>
+                      </tr>
+                      <tr>
+                        <td>A</td><td>4.00</td><td>90-100</td>
+                        <td>A-</td><td>3.67</td><td>86-89</td>
+                      </tr>
+                      <tr>
+                        <td>B+</td><td>3.33</td><td>82-85</td>
+                        <td>B</td><td>3.00</td><td>78-81</td>
+                      </tr>
+                      <tr>
+                        <td>B-</td><td>2.67</td><td>74-77</td>
+                        <td>C+</td><td>2.33</td><td>70-73</td>
+                      </tr>
+                      <tr>
+                        <td>C</td><td>2.00</td><td>66-69</td>
+                        <td>C-</td><td>1.67</td><td>62-65</td>
+                      </tr>
+                      <tr>
+                        <td>D+</td><td>1.33</td><td>58-61</td>
+                        <td>D</td><td>1.00</td><td>55-57</td>
+                      </tr>
+                      <tr>
+                        <td>F</td><td>0.00</td><td>0-54</td>
+                      </tr>
+                    </table>
+                  </div>
                 </details>
-            </div>
-          <div>
-            <div class="card mb-4">
-              <div class="card-header py-3">
-                <h3 class="card-title flex items-center gap-2 text-base">
-                  <i class="fas fa-graduation-cap text-blue-500"></i>
-                  Current Academic Status
-                </h3>
-              </div>
-              <div class="card-content">
-                <div class="grid grid-rows-2 grid-cols-2 gap-3 mb-3">
-                  <div class="space-y-1.5">
-                    <label for="completedCredit">Completed Credits</label>
-                    <input id="completedCredit" type="number" min="0" step="0.5" placeholder="Example: 95" />
-                    <div id="completedCreditError" class="text-xs text-red-500" style="display: none">
-                      Please enter completed credit hours
+                <script>
+                  function downloadTableAsCSV() {
+                    const table = document.getElementById("grading-table");
+                    let csv = [];
+                    for (let row of table.rows) {
+                      let cols = [];
+                      for (let cell of row.cells) {
+                        cols.push(cell.innerText);
+                      }
+                      csv.push(cols.join(","));
+                    }
+                    const csvFile = new Blob([csv.join("\n")], { type: "text/csv" });
+                    const link = document.createElement("a");
+                    link.href = URL.createObjectURL(csvFile);
+                    link.download = "UIU-Grading-System-ProgNerds.csv";
+                    link.click();
+                  }
+                </script>
+                <details class="acc-item">
+                  <summary class="acc-question-item">GPA & CGPA Calculation
+                  </summary>
+                  <div class="acc-details-item">
+                    <div class="card mb-6">
+                      <div class="card-header">
+                        <h3 class="card-title flex items-center gap-2">
+                          <i class="fas fa-chart-line text-blue-500"></i>
+                          GPA Calculation
+                        </h3>
+                      </div>
+                      <div class="card-content">
+                        <p class="note-g">
+                          $$
+                          \text{GPA}
+                          = \frac{\sum (\text{Grade Point} \times \text{Credit Hours})}{\sum \text{Credit Hours}}
+                          $$
+                        <p>
+                          <strong>Steps:</strong><br>
+                          (01) Convert each course's percentage or letter grade to the corresponding grade
+                          point (see UIU Grading System).<br>
+                          (02) Multiply the grade point by the credit hours of the course.<br>
+                          (03) Add up all the results from the previous step.<br>
+                          (04) Divide the total by the sum of all credit hours.<br>
+                        </p>
+                        <p><strong>Example:</strong><br>
+                          If you took 3 courses with grades A (1 credit), B+ (3 credits), and B (3 credits):
+                        <p class="note-b">
+                          $$
+                          \begin{aligned}
+                          \text{GPA}
+                          &= \frac{(4.00 \times 1) + (3.33 \times 3) + (3.00 \times 3)}{1 + 3 + 3} \\
+                          &= \frac{4 + 9.99 + 9}{7} \\
+                          &= 3.29
+                          \end{aligned}
+                          $$
+                        </p>
+                      </div>
+                    </div>
+                    <div class="card mb-6">
+                      <div class="card-header">
+                        <h3 class="card-title flex items-center gap-2">
+                          <i class="fas fa-graduation-cap text-green-500"></i>
+                          CGPA Calculation
+                        </h3>
+                      </div>
+                      <div class="card-content">
+                        <p class="note-g">
+                          $$
+                          \text{CGPA}
+                          =
+                          \frac{
+                          \text{GPA}_1 \times \text{Credits}_1
+                          + \text{GPA}_2 \times \text{Credits}_2
+                          + \dots
+                          }{
+                          \text{Total Credits}
+                          }
+                          $$
+                        </p>
+                        <p>
+                          <strong>Steps:</strong><br>
+                          (01) Calculate the GPA for each trimester using the formula above.<br>
+                          (02) Multiply each trimester's GPA by the total credit hours of that trimester.<br>
+                          (03) Add up all the results from step 2.<br>
+                          (04) Divide the total by the sum of all credit hours from all trimesters.<br>
+                        </p>
+                        <p><strong>Example:</strong><br>
+                          If you completed 2 trimesters with GPA 3.30 (11 credits) and 3.50 (13 credits):
+                        </p>
+                        <p class="note-b">
+                          $$
+                          \begin{aligned}
+                          \text{CGPA}
+                          &= \frac{(3.30 \times 11) + (3.50 \times 13)}{11 + 13} \\
+                          &= \frac{36.3 + 45.5}{24} \\
+                          &= 3.38
+                          \end{aligned}
+                          $$
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  <div class="space-y-1.5">
-                    <label for="currentCGPA">Current CGPA</label>
-                    <input id="currentCGPA" type="number" min="0" max="4" step="0.01" placeholder="Example: 3.50" />
-                    <div id="currentCGPAError" class="text-xs text-red-500" style="display: none">
-                      Please enter your current CGPA
-                    </div>
-                  </div>
-                </div>
-                <p class="text-xs note-b" style="margin: 15px 0 0 0;">
-                    If you are in first trimester, Just put 0 for both fields
-                  </p>
+                </details>
               </div>
-            </div>
-            <div class="tabs">
-              <div class="tabs-list">
-                <button class="tabs-trigger active" id="new-courses-tab">
-                  New Courses
-                </button>
-                <button class="tabs-trigger" id="retake-courses-tab">
-                  Retake Courses
-                </button>
-              </div>
-              <div id="new-courses" class="tabs-content active">
-                <div class="card">
+              <div>
+                <div class="card mb-4">
                   <div class="card-header py-3">
                     <h3 class="card-title flex items-center gap-2 text-base">
-                      <i class="fas fa-plus-circle text-green-500"></i>
-                      Add New Courses
+                      <i class="fas fa-graduation-cap text-blue-500"></i>
+                      Current Academic Status
                     </h3>
                   </div>
                   <div class="card-content">
                     <div class="grid grid-rows-2 grid-cols-2 gap-3 mb-3">
-                      <div>
-                        <label for="courseCredit" class="text-xs">Credit Hours</label>
-                        <select id="courseCredit" class="dark-select h-8">
-                          <option value="1">1.0</option>
-                          <option value="1.5">1.5</option>
-                          <option value="2">2.0</option>
-                          <option value="3" selected>3.0</option>
-                          <option value="4">4.0</option>
-                        </select>
+                      <div class="space-y-1.5">
+                        <label for="completedCredit">Completed Credits</label>
+                        <input id="completedCredit" type="number" min="0" step="0.5" placeholder="Example: 95" />
+                        <div id="completedCreditError" class="text-xs text-red-500" style="display: none">
+                          Please enter completed credit hours
+                        </div>
                       </div>
-                      <div>
-                        <label for="courseGrade" class="text-xs">Expected Grade</label>
-                        <select id="courseGrade" class="dark-select h-8">
-                        </select>
+                      <div class="space-y-1.5">
+                        <label for="currentCGPA">Current CGPA</label>
+                        <input id="currentCGPA" type="number" min="0" max="4" step="0.01" placeholder="Example: 3.50" />
+                        <div id="currentCGPAError" class="text-xs text-red-500" style="display: none">
+                          Please enter your current CGPA
+                        </div>
                       </div>
                     </div>
-                    <button id="addCourseBtn" class="btn w-full h-8 text-xs flex items-center gap-2">
-                      <i class="fas fa-plus-circle text-black-500"></i>
-                      Add Course
+                    <p class="text-xs note-b" style="margin: 15px 0 0 0;">
+                      If you are in first trimester, Just put 0 for both fields
+                    </p>
+                  </div>
+                </div>
+                <div class="tabs">
+                  <div class="tabs-list">
+                    <button class="tabs-trigger active" id="new-courses-tab">
+                      New Courses
                     </button>
-                    <div id="coursesList" class="mt-4" style="display: none">
-                      <label class="text-amber-500" style="text-align: center;">Added New Courses</label>
-                      <div class="scroll-area">
-                        <table id="coursesTable">
-                          <thead>
-                            <tr>
-                              <th class="text-xs">Credit</th>
-                              <th class="text-xs">Grade</th>
-                              <th class="text-xs">Points</th>
-                              <th class="text-xs">Action</th>
-                            </tr>
-                          </thead>
-                          <tbody id="coursesTableBody">
-                          </tbody>
-                        </table>
+                    <button class="tabs-trigger" id="retake-courses-tab">
+                      Retake Courses
+                    </button>
+                  </div>
+                  <div id="new-courses" class="tabs-content active">
+                    <div class="card">
+                      <div class="card-header py-3">
+                        <h3 class="card-title flex items-center gap-2 text-base">
+                          <i class="fas fa-plus-circle text-green-500"></i>
+                          Add New Courses
+                        </h3>
+                      </div>
+                      <div class="card-content">
+                        <div class="grid grid-rows-2 grid-cols-2 gap-3 mb-3">
+                          <div>
+                            <label for="courseCredit" class="text-xs">Credit Hours</label>
+                            <select id="courseCredit" class="dark-select h-8">
+                              <option value="1">1.0</option>
+                              <option value="1.5">1.5</option>
+                              <option value="2">2.0</option>
+                              <option value="3" selected>3.0</option>
+                              <option value="4">4.0</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label for="courseGrade" class="text-xs">Expected Grade</label>
+                            <select id="courseGrade" class="dark-select h-8">
+                            </select>
+                          </div>
+                        </div>
+                        <button id="addCourseBtn" class="btn w-full h-8 text-xs flex items-center gap-2">
+                          <i class="fas fa-plus-circle text-black-500"></i>
+                          Add Course
+                        </button>
+                        <div id="coursesList" class="mt-4" style="display: none">
+                          <label class="text-amber-500" style="text-align: center;">Added New Courses</label>
+                          <div class="scroll-area">
+                            <table id="coursesTable">
+                              <thead>
+                                <tr>
+                                  <th class="text-xs">Credit</th>
+                                  <th class="text-xs">Grade</th>
+                                  <th class="text-xs">Points</th>
+                                  <th class="text-xs">Action</th>
+                                </tr>
+                              </thead>
+                              <tbody id="coursesTableBody">
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="retake-courses" class="tabs-content">
+                    <div class="card">
+                      <div class="card-header py-3">
+                        <h3 class="card-title flex items-center gap-2 text-base">
+                          <i class="fas fa-plus-circle text-green-500"></i>
+                          Add Retake Courses
+                        </h3>
+                      </div>
+                      <div class="card-content">
+                        <div class="grid grid-cols-1 gap-3 mb-3">
+                          <div>
+                            <label for="retakeCourseCredit" class="text-xs">Credit Hours</label>
+                            <select id="retakeCourseCredit" class="dark-select h-8">
+                              <option value="1">1.0</option>
+                              <option value="1.5">1.5</option>
+                              <option value="2">2.0</option>
+                              <option value="3" selected>3.0</option>
+                              <option value="4">4.0</option>
+                            </select>
+                          </div>
+                          <div class="grid grid-cols-2 gap-3 md:grid-cols-2">
+                            <div>
+                              <label for="previousGrade" class="text-xs">Previous Grade</label>
+                              <select id="previousGrade" class="dark-select h-8">
+                              </select>
+                            </div>
+                            <div>
+                              <label for="newGrade" class="text-xs">Expected Grade</label>
+                              <select id="newGrade" class="dark-select h-8">
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <button id="addRetakeCourseBtn" class="btn w-full h-8 text-xs flex items-center gap-2">
+                          <i class="fas fa-plus-circle text-black-500"></i>
+                          Add Retake Course
+                        </button>
+                        <div id="retakeCoursesList" class="mt-4" style="display: none">
+                          <label class="text-amber-500" style="text-align: center;">Added Retake Courses</label>
+                          <div class="scroll-area">
+                            <table id="retakeCoursesTable">
+                              <thead>
+                                <tr>
+                                  <th class="text-xs">Credit</th>
+                                  <th class="text-xs">Previous</th>
+                                  <th class="text-xs">New</th>
+                                  <th class="text-xs">Improvement</th>
+                                  <th class="text-xs w-[60px]">Action</th>
+                                </tr>
+                              </thead>
+                              <tbody id="retakeCoursesTableBody">
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div id="retake-courses" class="tabs-content">
-                <div class="card">
-                  <div class="card-header py-3">
-                    <h3 class="card-title flex items-center gap-2 text-base">
-                      <i class="fas fa-plus-circle text-green-500"></i>
-                      Add Retake Courses
-                    </h3>
-                  </div>
-                  <div class="card-content">
-                    <div class="grid grid-cols-1 gap-3 mb-3">
-                      <div>
-                        <label for="retakeCourseCredit" class="text-xs">Credit Hours</label>
-                        <select id="retakeCourseCredit" class="dark-select h-8">
-                          <option value="1">1.0</option>
-                          <option value="1.5">1.5</option>
-                          <option value="2">2.0</option>
-                          <option value="3" selected>3.0</option>
-                          <option value="4">4.0</option>
-                        </select>
-                      </div>
-                      <div class="grid grid-cols-2 gap-3 md:grid-cols-2">
-                        <div>
-                          <label for="previousGrade" class="text-xs">Previous Grade</label>
-                          <select id="previousGrade" class="dark-select h-8">
-                          </select>
-                        </div>
-                        <div>
-                          <label for="newGrade" class="text-xs">Expected Grade</label>
-                          <select id="newGrade" class="dark-select h-8">
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <button id="addRetakeCourseBtn" class="btn w-full h-8 text-xs flex items-center gap-2">
-                      <i class="fas fa-plus-circle text-black-500"></i>
-                      Add Retake Course
-                    </button>
-                    <div id="retakeCoursesList" class="mt-4" style="display: none">
-                      <label class="text-amber-500" style="text-align: center;">Added Retake Courses</label>
-                      <div class="scroll-area">
-                        <table id="retakeCoursesTable">
-                          <thead>
-                            <tr>
-                              <th class="text-xs">Credit</th>
-                              <th class="text-xs">Previous</th>
-                              <th class="text-xs">New</th>
-                              <th class="text-xs">Improvement</th>
-                              <th class="text-xs w-[60px]">Action</th>
-                            </tr>
-                          </thead>
-                          <tbody id="retakeCoursesTableBody">
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
+                <div class="flex flex-col md:flex-row gap-3 mt-4">
+                  <button id="calculateCGPABtn" class="btn flex-1 h-9 text-xs flex items-center gap-2">
+                    <i class="fas fa-calculator"></i>
+                    Calculate CGPA
+                  </button>
+                  <button id="resetCGPABtn" class="btn-outline btn flex-1 h-9 text-xs flex items-center gap-2">
+                    <i class="fas fa-undo"></i>
+                    Reset Calculator
+                  </button>
+                </div>
+                <div id="cgpaResult" class="result" style="display: none">
                 </div>
               </div>
             </div>
-            <div class="flex flex-col md:flex-row gap-3 mt-4">
-              <button id="calculateCGPABtn" class="btn flex-1 h-9 text-xs flex items-center gap-2">
-                <i class="fas fa-calculator"></i>
-                Calculate CGPA
-              </button>
-              <button id="resetCGPABtn" class="btn-outline btn flex-1 h-9 text-xs flex items-center gap-2">
-                <i class="fas fa-undo"></i>
-                Reset Calculator
-              </button>
-            </div>
-            <div id="cgpaResult" class="result" style="display: none">
-            </div>
+            <section id="comments"></section>
+            <script src="https://giscus.app/client.js" data-repo="KawsarAleev/uiu-calculator-1"
+              data-repo-id="R_kgDOPll7Tg" data-category="Announcements" data-category-id="DIC_kwDOPll7Ts4CusLU"
+              data-mapping="specific" data-term="uiu-calculator-1-comments" data-strict="0" data-reactions-enabled="1"
+              data-emit-metadata="0" data-input-position="bottom" data-theme="transparent_dark" data-lang="en"
+              crossorigin="anonymous" async>
+              </script>
+          </main>
+          </main>
+        </div>
       </div>
-      </div>
-      
-
-      
-
-
-<style>
-.giscus, .giscus-frame {
-  max-width: 1000px;
-  margin: 10px auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-.giscus-frame {
-  border: none;
-}
-</style>
-<section id="comments"></section>
-<script src="https://giscus.app/client.js"
-        data-repo="KawsarAleev/uiu-calculator-1"
-        data-repo-id="R_kgDOPll7Tg"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOPll7Ts4CusLU"
-        data-mapping="specific"
-        data-term="uiu-calculator-1-comments"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"   
-      data-theme="transparent_dark"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
-</script>
-
-
-
-
-  </main>
-
-
-
-
-
-
-
-
-
-      </main>
-
-
-
-
-
-
-
-
-
-  </div>
-  
-  </div>
-  
-  </div>
+    </div>
   </div>
   <footer class="main-footer">
     All Rights Reserved © 2025 | <a href="https://github.com/prognerds" target="_blank">Prog Nerds</a>
@@ -687,15 +383,10 @@ function downloadTableAsCSV() {
   </div>
   </div>
   <script src="./assets/script/loader.js"></script>
+  <script src="./assets/script/firstLoadGreeting.js"></script>
   <script type=module src="assets/script/header.js"></script>
   <script type=module src="assets/script/nav.js"></script>
   <script src="./assets/script/main.js"></script>
   <script src="./assets/script/greeting.js"></script>
-
-
-
-
-  </body>
+</body>
 </html>
-
-
