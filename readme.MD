@@ -11,7 +11,3 @@ No more manual calculations or confusion. Just enter your info and get quick res
 
 ## 🔗 Live Demo
 👉 [UIU CGPA & Installment Calculator](https://prognerds.github.io/uiucalculator)  
-
----
-
-Made with ❤️ for the UIU community.
