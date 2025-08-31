@@ -18,8 +18,8 @@ class globalNav extends HTMLElement {
             <i class="fa-solid fa-money-bill-wave"></i><span>Tuition Fee</span>
         </button>
     </a>
-    <button id="reloadButton">
-        <i class="fas fa-refresh"></i><span>Reset</span>
+    <button id="commentButton">
+      <i class="fas fa-comment"></i><span>Comment</span>
     </button>
     <button id="shareButton">    
         <i class="fas fa-share-alt"></i><span>Share</span>
