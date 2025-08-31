@@ -67,87 +67,21 @@
                       </button>
                     </div>
                     <table id="grading-table">
-                      <tr>
-                        <th>Letter Grade</th>
-                        <th>Grade Point</th>
-                        <th>Marks (%)</th>
-                      </tr>
-                      <tr>
-                        <td>A</td>
-                        <td>4.00</td>
-                        <td>90 - 100</td>
-                      </tr>
-                      <tr>
-                        <td>A-</td>
-                        <td>3.67</td>
-                        <td>86 - 89</td>
-                      </tr>
-                      <tr>
-                        <td>B+</td>
-                        <td>3.33</td>
-                        <td>82 - 85</td>
-                      </tr>
-                      <tr>
-                        <td>B</td>
-                        <td>3.00</td>
-                        <td>78 - 81</td>
-                      </tr>
-                      <tr>
-                        <td>B-</td>
-                        <td>2.67</td>
-                        <td>74 - 77</td>
-                      </tr>
-                      <tr>
-                        <td>C+</td>
-                        <td>2.33</td>
-                        <td>70 - 73</td>
-                      </tr>
-                      <tr>
-                        <td>C</td>
-                        <td>2.00</td>
-                        <td>66 - 69</td>
-                      </tr>
-                      <tr>
-                        <td>C-</td>
-                        <td>1.67</td>
-                        <td>62 - 65</td>
-                      </tr>
-                      <tr>
-                        <td>D+</td>
-                        <td>1.33</td>
-                        <td>58 - 61</td>
-                      </tr>
-                      <tr>
-                        <td>D</td>
-                        <td>1.00</td>
-                        <td>55 - 57</td>
-                      </tr>
-                      <tr>
-                        <td>F</td>
-                        <td>0.00</td>
-                        <td>0 - 54</td>
-                      </tr>
+                      <tr><th>Letter Grade</th><th>Grade Point</th><th>Marks (%)</th></tr>
+                      <tr><td>A</td><td>4.00</td><td>90 - 100</td></tr>
+                      <tr><td>A-</td><td>3.67</td><td>86 - 89</td></tr>
+                      <tr><td>B+</td><td>3.33</td><td>82 - 85</td></tr>
+                      <tr><td>B</td><td>3.00</td><td>78 - 81</td></tr>
+                      <tr><td>B-</td><td>2.67</td><td>74 - 77</td></tr>
+                      <tr><td>C+</td><td>2.33</td><td>70 - 73</td></tr>
+                      <tr><td>C</td><td>2.00</td><td>66 - 69</td></tr>
+                      <tr><td>C-</td><td>1.67</td><td>62 - 65</td></tr>
+                      <tr><td>D+</td><td>1.33</td><td>58 - 61</td></tr>
+                      <tr><td>D</td><td>1.00</td><td>55 - 57</td></tr>
+                      <tr><td>F</td><td>0.00</td><td>0 - 54</td></tr>
                     </table>
                   </div>
                 </details>
-                <!-- <script>
-                  function downloadTableAsCSV() {
-                    const table = document.getElementById("grading-table");
-                    let csv = [];
-                    for (let row of table.rows) {
-                      let cols = [];
-                      for (let cell of row.cells) {
-                        cols.push(cell.innerText);
-                      }
-                      csv.push(cols.join(","));
-                    }
-                    const csvFile = new Blob([csv.join("\n")], { type: "text/csv" });
-                    const link = document.createElement("a");
-                    link.href = URL.createObjectURL(csvFile);
-                    link.download = "UIU-Grading-System-ProgNerds.csv";
-                    link.click();
-                  }
-                </script> -->
                 <details class="acc-item">
                   <summary class="acc-question-item">GPA & CGPA Calculation
                   </summary>

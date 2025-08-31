@@ -583,7 +583,7 @@ function calculateCGPA() {
         </div>
         <div class="card-content padding3">
           <div class="flex fc itemsC justify-center text-center">
-            <i class="fas fa-triangle-exclamation textR" style="font-size: 3rem!important; margin-bottom: 1rem;"></i>
+            <i class="fas fa-triangle-exclamation textA" style="font-size: 3rem!important; margin-bottom: 1rem;"></i>
             <h4 class="text-xl font-bold textA mb-3">CGPA Cannot Exceed 4.00</h4>
             <p class="margin1" style="margin-top: 10px; text-align: justify;">
               The calculated CGPA (${newCGPA.toFixed(2)}) exceeds the maximum possible value of 4.00. 
