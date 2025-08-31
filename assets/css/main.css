@@ -40,6 +40,10 @@ a:focus {
     outline: solid 0px !important;
 }
 
+button, a {
+  transition: background-color 0.2s;
+}
+
 *:focus {
     outline: 0 !important;
 }

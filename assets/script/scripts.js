@@ -14,3 +14,9 @@ function downloadTableAsCSV() {
     link.download = "UIU-Grading-System-ProgNerds.csv";
     link.click();
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("commentButton").addEventListener("click", function () {
+        document.getElementById("commentSection").scrollIntoView({ behavior: "smooth" });
+    });
+});

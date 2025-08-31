@@ -232,3 +232,11 @@
     padding-top: 20px;
   }
 }
+
+@media (max-width: 768px) {
+  .navbar button:hover {
+    background-color: transparent !important;
+    border: none !important;
+    color: inherit !important;
+  }
+}
