@@ -141,6 +141,10 @@ body {
     margin-top: 1rem;
 }
 
+.margin4 {
+    margin-top: 5rem;
+}
+
 .margin4>*+* {
     margin-top: 0.75rem;
 }
@@ -1437,9 +1441,6 @@ input {
 .giscus,
 .giscus-frame {
     max-width: 1000px;
-    margin: 10px auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
 }
 
 .giscus-frame {
