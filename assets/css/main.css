@@ -1450,3 +1450,36 @@ input {
 .giscus-frame {
     border: none;
 }
+
+#commentSection .card-header { 
+  padding: 0;         
+}
+#commentSection .card-header h3 { 
+  margin: 0; 
+}
+
+#commentSection .card-header .accordion-toggle {
+  all: unset;
+  box-sizing: border-box;   
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  width: 100%;
+  cursor: pointer;
+  padding: 13px;
+}
+
+#commentSection .card-header .accordion-toggle::after {
+  content: '↓';
+  margin-left: auto;
+  opacity: .85;
+}
+
+#commentSection .card-header .accordion-toggle[aria-expanded="true"]::after {
+  content: '↑';
+}
+
+#commentSection .card-header .accordion-toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}

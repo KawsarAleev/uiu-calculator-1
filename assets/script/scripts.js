@@ -20,3 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("commentSection").scrollIntoView({ behavior: "smooth" });
     });
 });
+
+const toggle = document.querySelector('#commentSection .accordion-toggle');
+const content = document.getElementById('commentContent');
+toggle.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    content.hidden = isOpen;
+});
