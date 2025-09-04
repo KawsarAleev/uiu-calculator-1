@@ -28,3 +28,71 @@ toggle.addEventListener('click', () => {
     toggle.setAttribute('aria-expanded', String(!isOpen));
     content.hidden = isOpen;
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+      const result = document.getElementById('cgpaResult');
+      const placeholder = document.getElementById('rightPlaceholder');
+      const resetBtn = document.getElementById('resetCGPABtn');
+
+      const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
+      const hasResult = () => result && result.textContent.trim().length > 0;
+
+      function syncPlaceholder() {
+        if (!placeholder) return;
+        if (!isDesktop()) {
+          placeholder.hidden = true;
+          return;
+        }
+        placeholder.hidden = hasResult();
+      }
+      syncPlaceholder();
+      if (result) {
+        const obs = new MutationObserver(syncPlaceholder);
+        obs.observe(result, { childList: true, subtree: true, characterData: true });
+      }
+
+      resetBtn?.addEventListener('click', () => {
+        if (result) result.textContent = '';
+        syncPlaceholder();
+      });
+
+      window.addEventListener('resize', syncPlaceholder);
+    });
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const tuitionResult = document.getElementById('tuitionResult'); 
+      const displayResult = document.getElementById('cgpaResult');    
+      const placeholder = document.getElementById('rightPlaceholder');
+      const resetBtn = document.getElementById('resetFeeBtn');
+
+      const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
+
+      function sync() {
+        const hasContent = tuitionResult && tuitionResult.innerHTML.trim().length > 0;
+
+        if (displayResult && tuitionResult) {
+          displayResult.innerHTML = tuitionResult.innerHTML;
+        } else if (displayResult && !tuitionResult) {
+          displayResult.innerHTML = '';
+        }
+
+        if (placeholder) {
+          placeholder.hidden = hasContent || !isDesktop();
+        }
+      }
+      sync();
+
+      if (tuitionResult) {
+        const obs = new MutationObserver(sync);
+        obs.observe(tuitionResult, { childList: true, subtree: true, characterData: true });
+      }
+
+      resetBtn?.addEventListener('click', () => {
+        if (tuitionResult) tuitionResult.innerHTML = '';
+        if (displayResult) displayResult.innerHTML = '';
+        sync();
+      });
+
+      window.addEventListener('resize', sync);
+    });

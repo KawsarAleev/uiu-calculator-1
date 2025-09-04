@@ -107,7 +107,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 80rem;
+    /* max-width: 80rem; */
 }
 
 .mxa {
@@ -116,7 +116,7 @@ body {
 }
 
 .maxw {
-    max-width: 56rem;
+    /* max-width: 56rem; */
 }
 
 .padding1 {
@@ -695,7 +695,7 @@ body.dark-mode .breadcrumb {
 
 .container,
 .gsc-main {
-    max-width: 1000px !important;
+    /* max-width: 1000px !important; */
     margin: auto;
 }
 
@@ -922,9 +922,8 @@ tr:last-child td {
 .result {
     background-color: hsl(var(--card));
     border-radius: var(--radius);
-    margin-top: 3rem;
 }
-
+/* 
 @media (min-width: 768px) {
     .md\:gridc3 {
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -935,7 +934,7 @@ tr:last-child td {
     }
 
     .md\:p-8 {
-        width: 1000px;
+        width: 1200px;
         padding: 2rem;
         margin: auto;
     }
@@ -943,6 +942,27 @@ tr:last-child td {
     .md\:flex-row {
         flex-direction: row;
     }
+} */
+
+@media (min-width: 768px) {
+  .md\:gridc3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .md\:p-8 {
+    width: 100%;
+    max-width: clamp(960px, 92vw, 1600px); /* tablet -> desktop -> ultrawide */
+    padding: 2rem;
+    margin: 0 auto;
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
 }
 
 .icon {
@@ -971,7 +991,7 @@ svg.icon.mr-2 {
 .toggle-label {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
     flex: 1;
 }
 
@@ -1163,7 +1183,7 @@ input {
 }
 
 .acc-wrapper {
-    max-width: 1000px;
+    /* max-width: 1000px; */
     margin: 0 auto;
     line-height: 1.5;
     margin: 15px 0;
@@ -1238,7 +1258,7 @@ input {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     gap: 20px;
     margin: 20px auto;
 }
@@ -1277,7 +1297,7 @@ input {
 }
 
 .tool-all {
-    max-width: 900px;
+    /* max-width: 900px; */
     margin: auto;
     padding: 20px;
 }
@@ -1444,7 +1464,7 @@ input {
 
 .giscus,
 .giscus-frame {
-    max-width: 1000px;
+    /* max-width: 1000px; */
 }
 
 .giscus-frame {
@@ -1483,3 +1503,61 @@ input {
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
+
+
+
+
+
+
+/* Desktop-only split layout */
+@media (min-width: 1024px) {
+  .desktop-split {
+    display: grid;
+    grid-template-columns: 1.35fr 0.9fr; /* left wider */
+    gap: 1.25rem;
+    align-items: stretch; /* was: start — stretch makes columns equal height */
+  }
+
+  /* Make columns flex so inner panels can fill column height */
+  .left-col,
+  .right-col {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+  }
+
+  /* Result: keep hidden by default; show only when it has content */
+  #cgpaResult {
+    display: none;        /* remove the previous display:block !important */
+    margin-top: 0;        /* align to top */
+    flex: 1 1 auto;       /* fill the right column when visible */
+  }
+  #cgpaResult:not(:empty) {
+    display: block !important;
+  }
+
+  /* Placeholder card fills the right column until result appears */
+  #rightPlaceholder {
+    flex: 1 1 auto;
+  }
+
+  /* Optional: center placeholder content nicely */
+  #rightPlaceholder .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    text-align: center;
+  }
+
+  /* Remove the pseudo-placeholder, since you now use a real card */
+  /* Delete this whole block if you still have it:
+  #cgpaResult:empty::before { ... }
+  */
+}
+
+/* Optional: make the right panel stick as you scroll on desktop
+.right-col { position: sticky; top: 90px; }
+*/
+

@@ -665,7 +665,7 @@ function calculateCGPA() {
               Result Summary
             </h3>
           </div>
-          <div class="card-content margin4">
+          <div class="card-content">
             <div class="space-y-2">
               <div class="flex justifyC itemsC">
                 <span>Current CGPA</span>
@@ -1033,10 +1033,6 @@ function calculateTuitionFee() {
     </div>
   </div>
 </div>
-<p class="note-r">
-  Installment due dates are announced in UIU official notices. You can also find the last date for each installment in the academic calendar. Always check the latest notice for confirmation.
-  ${isOnlyTrimesterFee ? 'Students paying only trimester fee can complete payment in the first installment.' : ''}
-</p>
   `;
   resultDiv.style.display = "block";
   try {

@@ -23,16 +23,11 @@ class globalHeader extends HTMLElement {
   </a>
 
   <nav class="header-links">
-    <a href="cgpa.html" class="header-btn">CGPA Calculator</a>
-    <a href="tuitionfee.html" class="header-btn">Tuition Fee Calculator</a>
     <button class="hamburger-btn" id="hamburgerBtn">
       <i class="fas fa-bars"></i>
     </button>
   </nav>
 </header>
-
-
-
   <div class="off-canvas-menu" id="offCanvasMenu">
     <div class="menu-header">
       <div class="menu-title">
@@ -55,13 +50,10 @@ class globalHeader extends HTMLElement {
         <label style="text-align: center; font-size: 11px!important;">[For personalized greeting 🙌]</label>
     </div>
 </div>
-
-      <a href="index.html" class="offcanvas-btn">Return Home</a>
-      <a href="cgpa.html" class="offcanvas-btn">CGPA Calculator</a>
-      <a href="tuitionfee.html" class="offcanvas-btn">Tuition Fee Calculator</a>
+      <a href="index.html" class="item" style="text-decoration: none; color: inherit; display: block; margin-bottom: 10px; border: 1px solid rgb(255, 255, 255, 0.1);">Return Home</a>
+      <a href="cgpa.html" class="item" style="text-decoration: none; color: inherit; display: block; margin-bottom: 10px; border: 1px solid rgb(255, 255, 255, 0.1);">CGPA Calculator</a>
+      <a href="tuitionfee.html" class="item" style="text-decoration: none; color: inherit; display: block; margin-bottom: 10px; border: 1px solid rgb(255, 255, 255, 0.1);">Tuition Fee Calculator</a>
     </div>
-
-
 <div class="menu-footer-f1">
 <div class="uiu-badge">
   <span class="uiu-badge-left">Version</span>
@@ -72,8 +64,6 @@ class globalHeader extends HTMLElement {
   <span class="uiu-license-left">License</span>
   <span class="uiu-license-right">M I T</span>
 </div>
-
-
   </span>
 </div>
 <div class="menu-footer-f1">
@@ -82,10 +72,6 @@ class globalHeader extends HTMLElement {
     (<span id="timeAgo">Calculating...</span>)
   </span>
 </div>
-
-
-
-
 
     <div class="menu-footer">
       <div class="developer-info">
@@ -110,11 +96,8 @@ class globalHeader extends HTMLElement {
           </div>
         </div>
       </div>
-      <a href="https://github.com/prognerds/uiucalculator" class="source-link"><i class="fab fa-github"></i> View Source Code</a>
+      <a href="https://github.com/prognerds/uiucalculator" class="item" style="text-decoration: none; color: inherit; display: block; margin-top: 10px; margin-bottom: 0; width: 100%; border: 1px solid rgb(255, 255, 255, 0.1);"><i class="fab fa-github"></i> View Source Code</a>
     </div>
-
-
-
   </div>
 `;
   }

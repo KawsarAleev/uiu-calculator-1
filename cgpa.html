@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Satisfy&family=Lobster&display=swap"
     rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
   <link rel="stylesheet" href="./assets/css/loader.css">
   <link rel="stylesheet" href="./assets/css/main.css">
   <link rel="stylesheet" href="./assets/css/nav.css">
+
   <title>UIU CGPA Calculator</title>
 </head>
 
@@ -31,23 +35,32 @@
       </div>
     </div>
   </div>
+
   <h1 id="greeting" style="color:#fff;"></h1>
+
   <header-x></header-x>
   <nav-x></nav-x>
+
   <div class="content">
     <div class="inner-content">
       <div id="preloader">
         <span class="loader"></span>
         <div class="gradient-text">CGPA<br>Calculator</div>
       </div>
+
       <div id="content-preload" class="fadeIn">
-        <nav class="breadcrumb"><a href="index.html">
+        <nav class="breadcrumb">
+          <a href="index.html">
             <script src="https://cdn.lordicon.com/lordicon.js"></script>
             <lord-icon src="https://cdn.lordicon.com/jeuxydnh.json" trigger="loop" stroke="bold"
               colors="primary:#ffffff,secondary:#f37021" style="width:20px;height:15px">
             </lord-icon>
-          </a><span>&gt;</span><a href="index.html">Calculator</a><span>/ <span class="bc-current-page">CGPA</span>
+          </a>
+          <span>&gt;</span>
+          <a href="index.html">Calculator</a>
+          <span>/ <span class="bc-current-page">CGPA</span></span>
         </nav>
+
         <div class="min-h-screen flex fc">
           <main class="flex1 padding1 md:p-8">
             <div class="container mxa maxw">
@@ -72,67 +85,23 @@
                         <th>Grade Point</th>
                         <th>Marks (%)</th>
                       </tr>
-                      <tr>
-                        <td>A</td>
-                        <td>4.00</td>
-                        <td>90 - 100</td>
-                      </tr>
-                      <tr>
-                        <td>A-</td>
-                        <td>3.67</td>
-                        <td>86 - 89</td>
-                      </tr>
-                      <tr>
-                        <td>B+</td>
-                        <td>3.33</td>
-                        <td>82 - 85</td>
-                      </tr>
-                      <tr>
-                        <td>B</td>
-                        <td>3.00</td>
-                        <td>78 - 81</td>
-                      </tr>
-                      <tr>
-                        <td>B-</td>
-                        <td>2.67</td>
-                        <td>74 - 77</td>
-                      </tr>
-                      <tr>
-                        <td>C+</td>
-                        <td>2.33</td>
-                        <td>70 - 73</td>
-                      </tr>
-                      <tr>
-                        <td>C</td>
-                        <td>2.00</td>
-                        <td>66 - 69</td>
-                      </tr>
-                      <tr>
-                        <td>C-</td>
-                        <td>1.67</td>
-                        <td>62 - 65</td>
-                      </tr>
-                      <tr>
-                        <td>D+</td>
-                        <td>1.33</td>
-                        <td>58 - 61</td>
-                      </tr>
-                      <tr>
-                        <td>D</td>
-                        <td>1.00</td>
-                        <td>55 - 57</td>
-                      </tr>
-                      <tr>
-                        <td>F</td>
-                        <td>0.00</td>
-                        <td>0 - 54</td>
-                      </tr>
+                      <tr><td>A</td><td>4.00</td><td>90 - 100</td></tr>
+                      <tr><td>A-</td><td>3.67</td><td>86 - 89</td></tr>
+                      <tr><td>B+</td><td>3.33</td><td>82 - 85</td></tr>
+                      <tr><td>B</td><td>3.00</td><td>78 - 81</td></tr>
+                      <tr><td>B-</td><td>2.67</td><td>74 - 77</td></tr>
+                      <tr><td>C+</td><td>2.33</td><td>70 - 73</td></tr>
+                      <tr><td>C</td><td>2.00</td><td>66 - 69</td></tr>
+                      <tr><td>C-</td><td>1.67</td><td>62 - 65</td></tr>
+                      <tr><td>D+</td><td>1.33</td><td>58 - 61</td></tr>
+                      <tr><td>D</td><td>1.00</td><td>55 - 57</td></tr>
+                      <tr><td>F</td><td>0.00</td><td>0 - 54</td></tr>
                     </table>
                   </div>
                 </details>
+
                 <details class="acc-item">
-                  <summary class="acc-question-item">GPA & CGPA Calculation
-                  </summary>
+                  <summary class="acc-question-item">GPA & CGPA Calculation</summary>
                   <div class="acc-details-item">
                     <div class="card margin2">
                       <div class="card-header">
@@ -147,16 +116,17 @@
                           \text{GPA}
                           = \frac{\sum (\text{Grade Point} \times \text{Credit Hours})}{\sum \text{Credit Hours}}
                           $$
+                        </p>
                         <p>
                           <strong>Steps:</strong><br>
-                          (01) Convert each course's percentage or letter grade to the corresponding grade
-                          point (see UIU Grading System).<br>
+                          (01) Convert each course's percentage or letter grade to the corresponding grade point (see UIU Grading System).<br>
                           (02) Multiply the grade point by the credit hours of the course.<br>
                           (03) Add up all the results from the previous step.<br>
                           (04) Divide the total by the sum of all credit hours.<br>
                         </p>
                         <p><strong>Example:</strong><br>
                           If you took 3 courses with grades A (1 credit), B+ (3 credits), and B (3 credits):
+                        </p>
                         <p class="note-b">
                           $$
                           \begin{aligned}
@@ -169,6 +139,7 @@
                         </p>
                       </div>
                     </div>
+
                     <div class="card margin2">
                       <div class="card-header">
                         <h3 class="card-title flex itemsC gap1">
@@ -215,172 +186,200 @@
                   </div>
                 </details>
               </div>
-              <div>
-                <div class="card margin1">
-                  <div class="card-header padding2">
-                    <h3 class="card-title flex itemsC gap1 text-base">
-                      <i class="fas fa-graduation-cap textB"></i>
-                      Current Academic Status
-                    </h3>
-                  </div>
-                  <div class="card-content">
-                    <div class="grid grid-rows-2 gridc2 gap2 mb-3">
-                      <div class="space-y-1.5">
-                        <label for="completedCredit">Completed Credits</label>
-                        <input id="completedCredit" type="number" min="0" step="0.5" placeholder="Example: 95" />
-                        <div id="completedCreditError" class="text-xs textR" style="display: none">
-                          Please enter completed credit hours
-                        </div>
-                      </div>
-                      <div class="space-y-1.5">
-                        <label for="currentCGPA">Current CGPA</label>
-                        <input id="currentCGPA" type="number" min="0" max="4" step="0.01" placeholder="Example: 3.50" />
-                        <div id="currentCGPAError" class="text-xs textR" style="display: none">
-                          Please enter your current CGPA
-                        </div>
-                      </div>
+
+              <!-- Desktop split: left = inputs/selectors, right = result -->
+              <div class="desktop-split">
+                <!-- LEFT: inputs/selectors -->
+                <section class="left-col">
+                  <div class="card margin1">
+                    <div class="card-header padding2">
+                      <h3 class="card-title flex itemsC gap1 text-base">
+                        <i class="fas fa-graduation-cap textB"></i>
+                        Current Academic Status
+                      </h3>
                     </div>
-                    <p class="text-xs note-b" style="margin: 15px 0 0 0;">
-                      If you are in first trimester, Just put 0 for both fields
-                    </p>
-                  </div>
-                </div>
-                <div class="tabs">
-                  <div class="tabs-list">
-                    <button class="tabs-trigger active" id="new-courses-tab">
-                      New Courses
-                    </button>
-                    <button class="tabs-trigger" id="retake-courses-tab">
-                      Retake Courses
-                    </button>
-                  </div>
-                  <div id="new-courses" class="tabs-content active">
-                    <div class="card">
-                      <div class="card-header padding2">
-                        <h3 class="card-title flex itemsC gap1 text-base">
-                          <i class="fas fa-plus-circle textG"></i>
-                          Add New Courses
-                        </h3>
-                      </div>
-                      <div class="card-content">
-                        <div class="grid grid-rows-2 gridc2 gap2 mb-3">
-                          <div>
-                            <label for="courseCredit" class="text-xs">Credit Hours</label>
-                            <select id="courseCredit" class="dark-select h-8">
-                              <option value="1">1.0</option>
-                              <option value="1.5">1.5</option>
-                              <option value="2">2.0</option>
-                              <option value="3" selected>3.0</option>
-                              <option value="4">4.0</option>
-                            </select>
-                          </div>
-                          <div>
-                            <label for="courseGrade" class="text-xs">Expected Grade</label>
-                            <select id="courseGrade" class="dark-select h-8">
-                            </select>
+                    <div class="card-content">
+                      <div class="grid grid-rows-2 gridc2 gap2 mb-3">
+                        <div class="space-y-1.5">
+                          <label for="completedCredit">Completed Credits</label>
+                          <input id="completedCredit" type="number" min="0" step="0.5" placeholder="Example: 95" />
+                          <div id="completedCreditError" class="text-xs textR" style="display: none">
+                            Please enter completed credit hours
                           </div>
                         </div>
-                        <button id="addCourseBtn" class="btn w-full h-8 text-xs flex itemsC gap1">
-                          <i class="fas fa-plus-circle text-black-500"></i>
-                          Add Course
-                        </button>
-                        <div id="coursesList" class="margin3" style="display: none">
-                          <label class="textA" style="text-align: center;">Added New Courses</label>
-                          <div class="scroll-area">
-                            <table id="coursesTable">
-                              <thead>
-                                <tr>
-                                  <th class="text-xs">Credit</th>
-                                  <th class="text-xs">Grade</th>
-                                  <th class="text-xs">Points</th>
-                                  <th class="text-xs">Action</th>
-                                </tr>
-                              </thead>
-                              <tbody id="coursesTableBody">
-                              </tbody>
-                            </table>
+                        <div class="space-y-1.5">
+                          <label for="currentCGPA">Current CGPA</label>
+                          <input id="currentCGPA" type="number" min="0" max="4" step="0.01" placeholder="Example: 3.50" />
+                          <div id="currentCGPAError" class="text-xs textR" style="display: none">
+                            Please enter your current CGPA
                           </div>
                         </div>
                       </div>
+                      <p class="text-xs note-b" style="margin: 15px 0 0 0;">
+                        If you are in first trimester, Just put 0 for both fields
+                      </p>
                     </div>
                   </div>
-                  <div id="retake-courses" class="tabs-content">
-                    <div class="card">
-                      <div class="card-header padding2">
-                        <h3 class="card-title flex itemsC gap1 text-base">
-                          <i class="fas fa-plus-circle textG"></i>
-                          Add Retake Courses
-                        </h3>
-                      </div>
-                      <div class="card-content">
-                        <div class="grid gridc1 gap2 mb-3">
-                          <div>
-                            <label for="retakeCourseCredit" class="text-xs">Credit Hours</label>
-                            <select id="retakeCourseCredit" class="dark-select h-8">
-                              <option value="1">1.0</option>
-                              <option value="1.5">1.5</option>
-                              <option value="2">2.0</option>
-                              <option value="3" selected>3.0</option>
-                              <option value="4">4.0</option>
-                            </select>
-                          </div>
-                          <div class="grid gridc2 gap2 md:gridc2">
+
+                  <div class="tabs">
+                    <div class="tabs-list">
+                      <button class="tabs-trigger active" id="new-courses-tab">
+                        New Courses
+                      </button>
+                      <button class="tabs-trigger" id="retake-courses-tab">
+                        Retake Courses
+                      </button>
+                    </div>
+
+                    <div id="new-courses" class="tabs-content active">
+                      <div class="card">
+                        <div class="card-header padding2">
+                          <h3 class="card-title flex itemsC gap1 text-base">
+                            <i class="fas fa-plus-circle textG"></i>
+                            Add New Courses
+                          </h3>
+                        </div>
+                        <div class="card-content">
+                          <div class="grid grid-rows-2 gridc2 gap2 mb-3">
                             <div>
-                              <label for="previousGrade" class="text-xs">Previous Grade</label>
-                              <select id="previousGrade" class="dark-select h-8">
+                              <label for="courseCredit" class="text-xs">Credit Hours</label>
+                              <select id="courseCredit" class="dark-select h-8">
+                                <option value="1">1.0</option>
+                                <option value="1.5">1.5</option>
+                                <option value="2">2.0</option>
+                                <option value="3" selected>3.0</option>
+                                <option value="4">4.0</option>
                               </select>
                             </div>
                             <div>
-                              <label for="newGrade" class="text-xs">Expected Grade</label>
-                              <select id="newGrade" class="dark-select h-8">
-                              </select>
+                              <label for="courseGrade" class="text-xs">Expected Grade</label>
+                              <select id="courseGrade" class="dark-select h-8"></select>
                             </div>
                           </div>
-                        </div>
-                        <button id="addRetakeCourseBtn" class="btn w-full h-8 text-xs flex itemsC gap1">
-                          <i class="fas fa-plus-circle text-black-500"></i>
-                          Add Retake Course
-                        </button>
-                        <div id="retakeCoursesList" class="margin3" style="display: none">
-                          <label class="textA" style="text-align: center;">Added Retake Courses</label>
-                          <div class="scroll-area">
-                            <table id="retakeCoursesTable">
-                              <thead>
-                                <tr>
-                                  <th class="text-xs">Credit</th>
-                                  <th class="text-xs">Previous</th>
-                                  <th class="text-xs">New</th>
-                                  <th class="text-xs">Improvement</th>
-                                  <th class="text-xs w-[60px]">Action</th>
-                                </tr>
-                              </thead>
-                              <tbody id="retakeCoursesTableBody">
-                              </tbody>
-                            </table>
+                          <button id="addCourseBtn" class="btn w-full h-8 text-xs flex itemsC gap1">
+                            <i class="fas fa-plus-circle text-black-500"></i>
+                            Add Course
+                          </button>
+                          <div id="coursesList" class="margin3" style="display: none">
+                            <label class="textA" style="text-align: center;">Added New Courses</label>
+                            <div class="scroll-area">
+                              <table id="coursesTable">
+                                <thead>
+                                  <tr>
+                                    <th class="text-xs">Credit</th>
+                                    <th class="text-xs">Grade</th>
+                                    <th class="text-xs">Points</th>
+                                    <th class="text-xs">Action</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="coursesTableBody"></tbody>
+                              </table>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
+
+                    <div id="retake-courses" class="tabs-content">
+                      <div class="card">
+                        <div class="card-header padding2">
+                          <h3 class="card-title flex itemsC gap1 text-base">
+                            <i class="fas fa-plus-circle textG"></i>
+                            Add Retake Courses
+                          </h3>
+                        </div>
+                        <div class="card-content">
+                          <div class="grid gridc1 gap2 mb-3">
+                            <div>
+                              <label for="retakeCourseCredit" class="text-xs">Credit Hours</label>
+                              <select id="retakeCourseCredit" class="dark-select h-8">
+                                <option value="1">1.0</option>
+                                <option value="1.5">1.5</option>
+                                <option value="2">2.0</option>
+                                <option value="3" selected>3.0</option>
+                                <option value="4">4.0</option>
+                              </select>
+                            </div>
+                            <div class="grid gridc2 gap2 md:gridc2">
+                              <div>
+                                <label for="previousGrade" class="text-xs">Previous Grade</label>
+                                <select id="previousGrade" class="dark-select h-8"></select>
+                              </div>
+                              <div>
+                                <label for="newGrade" class="text-xs">Expected Grade</label>
+                                <select id="newGrade" class="dark-select h-8"></select>
+                              </div>
+                            </div>
+                          </div>
+
+                          <button id="addRetakeCourseBtn" class="btn w-full h-8 text-xs flex itemsC gap1">
+                            <i class="fas fa-plus-circle text-black-500"></i>
+                            Add Retake Course
+                          </button>
+
+                          <div id="retakeCoursesList" class="margin3" style="display: none">
+                            <label class="textA" style="text-align: center;">Added Retake Courses</label>
+                            <div class="scroll-area">
+                              <table id="retakeCoursesTable">
+                                <thead>
+                                  <tr>
+                                    <th class="text-xs">Credit</th>
+                                    <th class="text-xs">Previous</th>
+                                    <th class="text-xs">New</th>
+                                    <th class="text-xs">Improvement</th>
+                                    <th class="text-xs w-[60px]">Action</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="retakeCoursesTableBody"></tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div><!-- /tabs -->
+
+                  <!-- <div class="flex fc md:flex-row gap2 margin3"> -->
+                  <div class="flex fc md:flex-row gap2">
+                    <button id="calculateCGPABtn" class="btn flex1 h-9 text-xs flex itemsC gap1">
+                      <i class="fas fa-calculator"></i>
+                      Calculate CGPA
+                    </button>
+                    <button id="resetCGPABtn" class="btn-outline btn flex1 h-9 text-xs flex itemsC gap1">
+                      <i class="fas fa-undo"></i>
+                      Reset Calculator
+                    </button>
+                  </div>
+                </section>
+
+                <aside class="right-col">
+                      <div id="cgpaResult" class="result" style="display: none"></div>
+                      <div id="rightPlaceholder" class="card" hidden style="margin-bottom: 0;">
+                        <div class="card-header padding2">
+                          <h3 class="card-title flex itemsC gap1 text-base">
+                            <i class="fas fa-calculator textG"></i>
+                            Result
+                          </h3>
+                        </div>
+                        <div class="card-content"
+                          style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                          <img src="./assets/image/calculator2.svg" alt="Calculator Image"
+                            style="height: 350px; width: 350px;">
+                          <p class="gradient-text" style="margin-top: 0; padding: 0 3px">Result will appear here
+                          </p>
+                        </div>
+                      </div>
+                    </aside>
+
                   </div>
                 </div>
-                <div class="flex fc md:flex-row gap2 margin3">
-                  <button id="calculateCGPABtn" class="btn flex1 h-9 text-xs flex itemsC gap1">
-                    <i class="fas fa-calculator"></i>
-                    Calculate CGPA
-                  </button>
-                  <button id="resetCGPABtn" class="btn-outline btn flex1 h-9 text-xs flex itemsC gap1">
-                    <i class="fas fa-undo"></i>
-                    Reset Calculator
-                  </button>
-                </div>
-                <div id="cgpaResult" class="result" style="display: none">
-                </div>
-              </div>
-            </div>
+
+
             <p class="note-g" style="margin-top: 5rem!important;">
               If you have any questions, suggestions, or feedback, feel free to leave a comment
               below. I'd love to hear from you! 💖
             </p>
+
             <div class="card" id="commentSection">
               <div class="card-header">
                 <h3 class="card-title">
@@ -391,14 +390,24 @@
                   </button>
                 </h3>
               </div>
-              <div class="card-content" id="commentContent" hidden style="padding-top: 0rem;">
+              <div class="card-content" id="commentContent" hidden>
                 <section id="comments"></section>
-                <script src="https://giscus.app/client.js" data-repo="KawsarAleev/uiu-calculator-1"
-                  data-repo-id="R_kgDOPll7Tg" data-category="Announcements" data-category-id="DIC_kwDOPll7Ts4CusLU"
-                  data-mapping="specific" data-term="uiu-calculator-1-comments" data-strict="0"
-                  data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom"
-                  data-theme="transparent_dark" data-lang="en" crossorigin="anonymous" async>
-                  </script>
+                <script src="https://giscus.app/client.js"
+                  data-repo="KawsarAleev/uiu-calculator-1"
+                  data-repo-id="R_kgDOPll7Tg"
+                  data-category="Announcements"
+                  data-category-id="DIC_kwDOPll7Ts4CusLU"
+                  data-mapping="specific"
+                  data-term="uiu-calculator-1-comments"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="transparent_dark"
+                  data-lang="en"
+                  crossorigin="anonymous"
+                  async>
+                </script>
               </div>
             </div>
           </main>
@@ -406,18 +415,18 @@
       </div>
     </div>
   </div>
+
   <footer class="main-footer">
     All Rights Reserved © 2025 | <a href="https://github.com/prognerds" target="_blank">Prog Nerds</a>
   </footer>
-  </div>
-  </div>
-  </div>
+
   <script src="./assets/script/loader.js"></script>
   <script src="./assets/script/welcome.js"></script>
-  <script type=module src="assets/script/header.js"></script>
-  <script type=module src="assets/script/nav.js"></script>
+  <script type="module" src="assets/script/header.js"></script>
+  <script type="module" src="assets/script/nav.js"></script>
   <script src="./assets/script/main.js"></script>
   <script src="./assets/script/scripts.js"></script>
-</body>
 
+  
+</body>
 </html>

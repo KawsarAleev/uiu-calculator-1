@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Satisfy&family=Lobster&display=swap"
     rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+
   <link rel="stylesheet" href="./assets/css/loader.css">
   <link rel="stylesheet" href="./assets/css/main.css">
   <link rel="stylesheet" href="./assets/css/nav.css">
+
   <title>UIU Tuition Fee Calculator</title>
 </head>
 
@@ -31,28 +35,41 @@
       </div>
     </div>
   </div>
+
   <h1 id="greeting" style="color:#fff;"></h1>
+
   <header-x></header-x>
   <nav-x></nav-x>
+
   <div class="content">
     <div class="inner-content">
       <div id="preloader">
         <span class="loader"></span>
         <div class="gradient-text" style="text-align: center;">Tuition Fee<br>Calculator</div>
       </div>
+
       <div id="content-preload" class="fadeIn">
-        <nav class="breadcrumb"><a href="index.html">
-            <script src="https://cdn.lordicon.com/lordicon.js"></script><lord-icon
-              src="https://cdn.lordicon.com/jeuxydnh.json" trigger="loop" stroke="bold"
-              colors="primary:#ffffff,secondary:#f37021" style="width:20px;height:15px">
+        <nav class="breadcrumb">
+          <a href="index.html">
+            <script src="https://cdn.lordicon.com/lordicon.js"></script>
+            <lord-icon
+              src="https://cdn.lordicon.com/jeuxydnh.json"
+              trigger="loop"
+              stroke="bold"
+              colors="primary:#ffffff,secondary:#f37021"
+              style="width:20px;height:15px">
             </lord-icon>
-          </a><span>&gt;</span><a href="index.html">Calculator</a><span>/ <span class="bc-current-page">Tuition
-              Fee</span>
+          </a>
+          <span>&gt;</span>
+          <a href="index.html">Calculator</a>
+          <span>/ <span class="bc-current-page">Tuition Fee</span></span>
         </nav>
+
         <div class="min-h-screen flex fc">
           <main class="flex1 padding1 md:p-8">
             <div class="container mxa maxw">
               <div class="tabs">
+                <!-- Keep other tabs (e.g., cgpa-tab) unchanged -->
                 <div id="cgpa-tab" class="tabs-content">
                   <div class="tabs">
                     <div id="new-courses" class="tabs-content">
@@ -77,8 +94,7 @@
                             </div>
                             <div>
                               <label for="courseGrade" class="text-xs">Expected Grade</label>
-                              <select id="courseGrade" class="dark-select h-8">
-                              </select>
+                              <select id="courseGrade" class="dark-select h-8"></select>
                             </div>
                           </div>
                           <button id="addCourseBtn" class="btn w-full h-8 text-xs flex itemsC gap1">
@@ -97,14 +113,14 @@
                                     <th class="text-xs">Remove</th>
                                   </tr>
                                 </thead>
-                                <tbody id="coursesTableBody">
-                                </tbody>
+                                <tbody id="coursesTableBody"></tbody>
                               </table>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+
                     <div id="retake-courses" class="tabs-content">
                       <div class="card">
                         <div class="card-header padding2">
@@ -128,13 +144,11 @@
                             <div class="grid gridc2 gap2 md:gridc2">
                               <div>
                                 <label for="previousGrade" class="text-xs">Previous Grade</label>
-                                <select id="previousGrade" class="dark-select h-8">
-                                </select>
+                                <select id="previousGrade" class="dark-select h-8"></select>
                               </div>
                               <div>
                                 <label for="newGrade" class="text-xs">Expected Grade</label>
-                                <select id="newGrade" class="dark-select h-8">
-                                </select>
+                                <select id="newGrade" class="dark-select h-8"></select>
                               </div>
                             </div>
                           </div>
@@ -155,15 +169,16 @@
                                     <th class="text-xs w-[60px]">Remove</th>
                                   </tr>
                                 </thead>
-                                <tbody id="retakeCoursesTableBody">
-                                </tbody>
+                                <tbody id="retakeCoursesTableBody"></tbody>
                               </table>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+
+                  </div><!-- /tabs inside cgpa-tab -->
+
                   <div class="flex fc md:flex-row gap2 margin3">
                     <button id="calculateCGPABtn" class="btn flex1 h-9 text-xs flex itemsC gap1">
                       <i class="fas fa-calculator"></i>
@@ -174,193 +189,226 @@
                       Reset Calculator
                     </button>
                   </div>
-                </div>
+                </div><!-- /cgpa-tab -->
+
+                <!-- Tuition tab with desktop split -->
                 <div id="tuition-tab" class="tabs-content active">
-                  <div class="card margin2">
-                    <div class="card-header">
-                      <h3 class="card-title flex itemsC gap1">
-                        <i class="fas fa-book-open textG"></i>
-                        Credit Hours Information
-                      </h3>
-                    </div>
-                    <div class="card-content">
-                      <div class="grid grid-rows-2 gridc2 gap2 mb-3">
-                        <div class="space-y-2">
-                          <label for="newCredit">New Credit Hours</label>
-                          <input id="newCredit" type="number" min="0" step="1" placeholder="Example: 13" />
-                          <div id="newCreditError" class="text-xs textR" style="display: none">
-                            Please enter new credit hours
+                  <div class="desktop-split">
+                    <!-- LEFT: inputs/selectors -->
+                    <section class="left-col">
+                      <div class="card margin2">
+                        <div class="card-header">
+                          <h3 class="card-title flex itemsC gap1">
+                            <i class="fas fa-book-open textG"></i>
+                            Credit Hours Information
+                          </h3>
+                        </div>
+                        <div class="card-content">
+                          <div class="grid grid-rows-2 gridc2 gap2 mb-3">
+                            <div class="space-y-2">
+                              <label for="newCredit">New Credit Hours</label>
+                              <input id="newCredit" type="number" min="0" step="1" placeholder="Example: 13" />
+                              <div id="newCreditError" class="text-xs textR" style="display: none">
+                                Please enter new credit hours
+                              </div>
+                            </div>
+                            <div class="space-y-2">
+                              <label for="retakeCredit">Retake Credit Hours</label>
+                              <input id="retakeCredit" type="number" min="0" step="1" placeholder="Example: 3" />
+                            </div>
                           </div>
                         </div>
-                        <div class="space-y-2">
-                          <label for="retakeCredit">Retake Credit Hours</label>
-                          <input id="retakeCredit" type="number" min="0" step="1" placeholder="Example: 3" />
-                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <div class="card margin2">
-                    <div class="card-header">
-                      <h3 class="card-title flex itemsC gap1">
-                        <i class="fas fa-credit-card textB"></i>
-                        Fee Information
-                      </h3>
-                    </div>
-                    <div class="card-content">
-                      <div class="grid gridc1 md:gridc2 gap-6">
-                        <div class="space-y-2">
-                          <label for="perCreditFee">Per Credit Fee</label>
-                          <input id="perCreditFee" type="number" min="0" step="100" value="6500"
-                            placeholder="Example: 6500" />
-                          <div id="perCreditFeeError" class="text-xs textR" style="display: none">
-                            Please enter per credit fee
-                          </div>
+
+                      <div class="card margin2">
+                        <div class="card-header">
+                          <h3 class="card-title flex itemsC gap1">
+                            <i class="fas fa-credit-card textB"></i>
+                            Fee Information
+                          </h3>
                         </div>
-                        <div class="space-y-2">
-                          <label for="trimesterFee">Trimester Fee</label>
-                          <input id="trimesterFee" type="number" min="0" step="100" value="6500"
-                            placeholder="Example: 6500" />
-                          <div id="trimesterFeeError" class="text-xs textR" style="display: none">
-                            Please enter trimester fee
-                          </div>
-                          <p class="toggle-description">
-                            Trimester Fee is not affected by waiver/scholarship
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card margin2">
-                    <div class="card-header">
-                      <h3 class="card-title flex itemsC gap1">
-                        <i class="fas fa-percentage textA"></i>
-                        Regular Discounts
-                      </h3>
-                    </div>
-                    <div class="card-content">
-                      <div class="grid gridc1 md:gridc2 gap-6">
-                        <div class="space-y-2">
-                          <label for="waiver">Waiver</label>
-                          <select id="waiver" class="dark-select h-8">
-                            <option value="0">0% - No Waiver</option>
-                            <option value="25">25% Waiver</option>
-                            <option value="50">50% Waiver</option>
-                            <option value="100">100% Waiver</option>
-                          </select>
-                        </div>
-                        <div class="space-y-2">
-                          <label for="scholarship">Scholarship</label>
-                          <select id="scholarship" class="dark-select h-8">
-                            <option value="0">0% - No Scholarship</option>
-                            <option value="25">25% Scholarship</option>
-                            <option value="50">50% Scholarship</option>
-                            <option value="100">100% Scholarship</option>
-                          </select>
-                          <p class="text-xs note-g">
-                            Only the higher of waiver or scholarship will be applied
-                          </p>
-                        </div>
-                      </div>
-                      <div class="mt-6">
-                        <div class="toggle-container">
-                          <div class="toggle-label flex items-start gap1">
-                            <i class="fas fa-percentage textB"></i>
-                            <div>
-                              <span>Apply waiver/scholarship in first installment</span>
+                        <div class="card-content">
+                          <div class="grid gridc1 md:gridc2 gap-6">
+                            <div class="space-y-2">
+                              <label for="perCreditFee">Per Credit Fee</label>
+                              <input id="perCreditFee" type="number" min="0" step="100" value="6500"
+                                placeholder="Example: 6500" />
+                              <div id="perCreditFeeError" class="text-xs textR" style="display: none">
+                                Please enter per credit fee
+                              </div>
+                            </div>
+                            <div class="space-y-2">
+                              <label for="trimesterFee">Trimester Fee</label>
+                              <input id="trimesterFee" type="number" min="0" step="100" value="6500"
+                                placeholder="Example: 6500" />
+                              <div id="trimesterFeeError" class="text-xs textR" style="display: none">
+                                Please enter trimester fee
+                              </div>
                               <p class="toggle-description">
-                                Usually waiver doesn't apply on 1st installment
+                                Trimester Fee is not affected by waiver/scholarship
                               </p>
                             </div>
                           </div>
-                          <label class="toggle-switch">
-                            <input type="checkbox" id="waiverInFirstInstallment">
-                            <span class="toggle-slider"></span>
-                          </label>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <div class="card margin2">
-                    <div class="card-header">
-                      <h3 class="card-title flex itemsC gap1">
-                        <i class="fas fa-gift textP"></i>
-                        Special Discounts (Stackable)
-                      </h3>
-                    </div>
-                    <div class="card-content">
-                      <div class="grid gridc1 md:gridc2 gap-6">
-                        <div class="space-y-2">
-                          <label for="siblingSpouseWaiver">Sibling/Spouse Waiver</label>
-                          <select id="siblingSpouseWaiver" class="dark-select h-8">
-                            <option value="0">Not Applicable</option>
-                            <option value="20">20% - Sibling/Spouse Waiver</option>
-                          </select>
+
+                      <div class="card margin2">
+                        <div class="card-header">
+                          <h3 class="card-title flex itemsC gap1">
+                            <i class="fas fa-percentage textA"></i>
+                            Regular Discounts
+                          </h3>
                         </div>
-                        <div class="space-y-2">
-                          <label for="ethnicTribalWaiver">Ethnic Groups/Tribal Waiver</label>
-                          <select id="ethnicTribalWaiver" class="dark-select h-8">
-                            <option value="0">Not Applicable</option>
-                            <option value="25">25% - Ethnic Groups/Tribal Waiver</option>
-                          </select>
-                        </div>
-                        <div class="space-y-2">
-                          <label for="disabilityWaiver">Physically Disabled Students Waiver</label>
-                          <select id="disabilityWaiver" class="dark-select h-8">
-                            <option value="0">Not Applicable</option>
-                            <option value="25">25% - Moderate Disability</option>
-                            <option value="50">50% - Severe Disability</option>
-                          </select>
-                        </div>
-                      </div>
-                      <p class="text-xs note-b margin3">
-                        These waivers stack with regular waivers/scholarships and apply to all students who qualify
-                      </p>
-                    </div>
-                  </div>
-                  <div class="card margin2">
-                    <div class="card-header">
-                      <h3 class="card-title flex itemsC gap1">
-                        <i class="fas fa-money-bill-wave textG"></i>
-                        Additional Fees
-                      </h3>
-                    </div>
-                    <div class="card-content">
-                      <div class="toggle-container">
-                        <div class="toggle-label flex items-start gap1">
-                          <i class="fas fa-clock textR"></i>
-                          <div>
-                            <span>Late Registration</span>
-                            <p class="toggle-description">
-                              Additional fine of 500 Taka
-                            </p>
+                        <div class="card-content">
+                          <div class="grid gridc1 md:gridc2 gap-6">
+                            <div class="space-y-2">
+                              <label for="waiver">Waiver</label>
+                              <select id="waiver" class="dark-select h-8">
+                                <option value="0">0% - No Waiver</option>
+                                <option value="25">25% Waiver</option>
+                                <option value="50">50% Waiver</option>
+                                <option value="100">100% Waiver</option>
+                              </select>
+                            </div>
+                            <div class="space-y-2">
+                              <label for="scholarship">Scholarship</label>
+                              <select id="scholarship" class="dark-select h-8">
+                                <option value="0">0% - No Scholarship</option>
+                                <option value="25">25% Scholarship</option>
+                                <option value="50">50% Scholarship</option>
+                                <option value="100">100% Scholarship</option>
+                              </select>
+                              <p class="text-xs note-g">
+                                Only the higher of waiver or scholarship will be applied
+                              </p>
+                            </div>
+                          </div>
+
+                          <div class="mt-6">
+                            <div class="toggle-container">
+                              <div class="toggle-label flex items-start gap1">
+                                <i class="fas fa-percentage textB"></i>
+                                <div>
+                                  <span>Apply waiver/scholarship in first installment</span>
+                                  <p class="toggle-description">
+                                    Usually waiver doesn't apply on 1st installment
+                                  </p>
+                                </div>
+                              </div>
+                              <label class="toggle-switch">
+                                <input type="checkbox" id="waiverInFirstInstallment">
+                                <span class="toggle-slider"></span>
+                              </label>
+                            </div>
                           </div>
                         </div>
-                        <label class="toggle-switch">
-                          <input type="checkbox" id="lateRegistration">
-                          <span class="toggle-slider"></span>
-                        </label>
                       </div>
-                    </div>
-                  </div>
-                  <div class="flex fc md:flex-row gap3">
-                    <button id="calculateFeeBtn" class="btn flex1 flex itemsC gap1">
-                      <i class="fas fa-calculator"></i>
-                      Calculate Fee
-                    </button>
-                    <button id="resetFeeBtn" class="btn-outline btn flex1 flex itemsC gap1">
-                      <i class="fas fa-undo"></i>
-                      Reset Calculator
-                    </button>
-                  </div>
-                  <div id="tuitionResult" class="result" style="display: none">
+
+                      <div class="card margin2">
+                        <div class="card-header">
+                          <h3 class="card-title flex itemsC gap1">
+                            <i class="fas fa-gift textP"></i>
+                            Special Discounts (Stackable)
+                          </h3>
+                        </div>
+                        <div class="card-content">
+                          <div class="grid gridc1 md:gridc2 gap-6">
+                            <div class="space-y-2">
+                              <label for="siblingSpouseWaiver">Sibling/Spouse Waiver</label>
+                              <select id="siblingSpouseWaiver" class="dark-select h-8">
+                                <option value="0">Not Applicable</option>
+                                <option value="20">20% - Sibling/Spouse Waiver</option>
+                              </select>
+                            </div>
+                            <div class="space-y-2">
+                              <label for="ethnicTribalWaiver">Ethnic Groups/Tribal Waiver</label>
+                              <select id="ethnicTribalWaiver" class="dark-select h-8">
+                                <option value="0">Not Applicable</option>
+                                <option value="25">25% - Ethnic Groups/Tribal Waiver</option>
+                              </select>
+                            </div>
+                            <div class="space-y-2">
+                              <label for="disabilityWaiver">Physically Disabled Students Waiver</label>
+                              <select id="disabilityWaiver" class="dark-select h-8">
+                                <option value="0">Not Applicable</option>
+                                <option value="25">25% - Moderate Disability</option>
+                                <option value="50">50% - Severe Disability</option>
+                              </select>
+                            </div>
+                          </div>
+                          <p class="text-xs note-b margin3">
+                            These waivers stack with regular waivers/scholarships and apply to all students who qualify
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="card margin2">
+                        <div class="card-header">
+                          <h3 class="card-title flex itemsC gap1">
+                            <i class="fas fa-money-bill-wave textG"></i>
+                            Additional Fees
+                          </h3>
+                        </div>
+                        <div class="card-content">
+                          <div class="toggle-container">
+                            <div class="toggle-label flex items-start gap1">
+                              <i class="fas fa-clock textR"></i>
+                              <div>
+                                <span>Late Registration</span>
+                                <p class="toggle-description">
+                                  Additional fine of 500 Taka
+                                </p>
+                              </div>
+                            </div>
+                            <label class="toggle-switch">
+                              <input type="checkbox" id="lateRegistration">
+                              <span class="toggle-slider"></span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="flex fc md:flex-row gap3">
+                        <button id="calculateFeeBtn" class="btn flex1 flex itemsC gap1">
+                          <i class="fas fa-calculator"></i>
+                          Calculate Fee
+                        </button>
+                        <button id="resetFeeBtn" class="btn-outline btn flex1 flex itemsC gap1">
+                          <i class="fas fa-undo"></i>
+                          Reset Calculator
+                        </button>
+                      </div>
+                    </section>
+
+                    <aside class="right-col">
+                      <div id="tuitionResult" class="result" style="display: none"></div>
+                      <!-- <div id="cgpaResult" class="result" style="display: none"></div> -->
+                      <div id="rightPlaceholder" class="card" hidden style="margin-bottom: 0;">
+                        <div class="card-header padding2">
+                          <h3 class="card-title flex itemsC gap1 text-base">
+                            <i class="fas fa-calculator textG"></i>
+                            Result
+                          </h3>
+                        </div>
+                        <div class="card-content">
+                          <img src="./assets/image/calculator.svg" alt="Calculator Image"
+                            style="height: 350px; width: 350px;">
+                          <p class="gradient-text" style="margin-top: 0; padding: 0 3px">Result will appear here
+                        </div>
+                      </div>
+                    </aside>
+
+                    
                   </div>
                 </div>
               </div>
             </div>
+
             <p class="note-g" style="margin-top: 5rem!important;">
               If you have any questions, suggestions, or feedback, feel free to leave a comment
               below. I'd love to hear from you! 💖
             </p>
+
             <div class="card" id="commentSection">
               <div class="card-header">
                 <h3 class="card-title">
@@ -371,31 +419,42 @@
                   </button>
                 </h3>
               </div>
-              <div class="card-content" id="commentContent" hidden style="padding-top: 0rem;">
+              <div class="card-content" id="commentContent" hidden>
                 <section id="comments"></section>
-                <script src="https://giscus.app/client.js" data-repo="KawsarAleev/uiu-calculator-1"
-                  data-repo-id="R_kgDOPll7Tg" data-category="Announcements" data-category-id="DIC_kwDOPll7Ts4CusLU"
-                  data-mapping="specific" data-term="uiu-calculator-1-comments" data-strict="0"
-                  data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom"
-                  data-theme="transparent_dark" data-lang="en" crossorigin="anonymous" async>
-                    
-                  </script>
+                <script src="https://giscus.app/client.js"
+                  data-repo="KawsarAleev/uiu-calculator-1"
+                  data-repo-id="R_kgDOPll7Tg"
+                  data-category="Announcements"
+                  data-category-id="DIC_kwDOPll7Ts4CusLU"
+                  data-mapping="specific"
+                  data-term="uiu-calculator-1-comments"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="transparent_dark"
+                  data-lang="en"
+                  crossorigin="anonymous"
+                  async>
+                </script>
               </div>
             </div>
           </main>
         </div>
+
         <footer class="main-footer">
           All Rights Reserved © 2025 | <a href="https://github.com/prognerds" target="_blank">Prog Nerds</a>
         </footer>
       </div>
     </div>
   </div>
+
   <script src="./assets/script/loader.js"></script>
   <script src="./assets/script/welcome.js"></script>
-  <script type=module src="assets/script/header.js"></script>
-  <script type=module src="assets/script/nav.js"></script>
+  <script type="module" src="assets/script/header.js"></script>
+  <script type="module" src="assets/script/nav.js"></script>
   <script src="./assets/script/main.js"></script>
   <script src="./assets/script/scripts.js"></script>
+  
 </body>
-
 </html>
